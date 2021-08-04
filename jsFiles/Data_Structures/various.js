@@ -77,7 +77,7 @@ function pageNumbers(words, info) {
 }
 
 
-//1) Warehouse Bins
+//Warehouse Bins
 
 /*
   Given an object of empty bins (arrays) and an array of items with their type (items), move the item name to the correct bin based on the type. You can assume the type of item will always have a corresponding bin.
@@ -117,7 +117,7 @@ console.log(warehouseBins(unsortedItems, binNames)); // ==>
 
 //--------------------------------------
 
-//2) How many treats
+//How many treats
 
 /* A dog is being trained to fetch the paper. When the dog takes the right action, the dog receives a treat. Otherwise, the dog receives nothing.
 
@@ -143,7 +143,7 @@ console.log(howManyTreats(attempts)); //==> 3
 
 
 //-----------
-//3) Killer Robots
+ Killer Robots
 
 /*
 There are killer robots on the loose! And they look like all the other robots. There is only one way to tell the robots apart: by what they say. 
@@ -172,3 +172,90 @@ function killerRobots(strings) {
 console.log(killerRobots(robotTalk)); //=> [false, true, false, true, false, false]
 
 
+//--------------------
+
+
+
+
+//----------------------------
+
+//organize billiards 1 - array - intermediate
+
+//Given an array of arrays, return true if the 8 ball is in the correct starting place. If not, return false.
+//*In billiards, the 8 ball should be placed in the middle of the third row.* 
+
+
+var billiardsSetup1 = [
+  [1],
+  [2,15],
+  [4,9,10],
+  [6,3,15,14],
+  [13,11,12,5,7,8]
+]; //=> false
+
+var billiardsSetup2 = [
+  [1],
+  [2,9],
+  [4,8,10],
+  [6,3,15,14],
+  [13,11,12,5,7,15]
+]; //=> true
+
+
+function readyToPlay(arr) {
+  
+}
+
+//Weather predictions
+//What day
+//Sally lives in a very rainy area. She's trying to find the day most likely to be sunny.
+//Weather prediction takes in an object containing two sources of weather info. If both sources contain Weather info predicting the same day to be 'sunny', return the day. If no days match, return 'replan'
+
+//info:
+// - at most, one sunny day will match 
+// - it is possible no days will match.
+// - both sources will always have the same length
+
+
+function weatherPrediction(sources) {
+
+}
+
+//shouldWeWalk
+  //Given a distance in miles and an array of people's names and how far they are willing to walk, return true if all people are willing to walk that distance, and false if anyone is not willing to walk that distance.
+  
+  var people = [
+    {
+      name: 'Tom',
+      'walking distance': 4,
+    },
+    {
+      name: 'Shelly',
+      'walking distnace': 3
+    },
+    {
+      name: 'Wandile',
+      'walking distance': 5,
+    },
+    {
+      name: 'Geoffrey',
+      'walking distance': 2
+    }
+  ];
+
+function shouldWeWalk(people, distance) {
+    
+  }
+  
+  var distance = 3;
+  var expected = false;
+  
+  //should we walk 2
+    //return a new array of the people who are willing to walk that distance
+    
+  var distance = 4;
+var expected = ['Tom', 'Wandile'];
+  
+//Who will walk?
+
+//similar to the aobve, this tie return an aray of people who will walk

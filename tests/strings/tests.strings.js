@@ -134,10 +134,83 @@ describe('signedIn', function () {
     ).to.deep.eq(
       "Tom is currently signed out. They last signed in on 07/01/2021."
     );
-    signedIn
   });
 
 })
 
-describe("oddOrEvenNums")
+describe("oddOrEvenNums", function () {
+  
+  it("should not use the \"split\" method", function () {
+    const funcStr = oddOrEvenNums.toString();
+    expect(funcStr).to.not.include('.split');
+  })
+
+  it("should return an array with the same length as the input array", function () {
+    expect(oddOrEvenNums([3, 7, 9])).to.have.lengthof(3);
+    expect(oddOrEvenNums([3, 10, 9, 12])).to.have.lengthof(4);
+  })
+
+  it("should return an array containing the expected strings", function () {
+    expect(oddOrEvenNums([3, 7, 9])).to.eql(['odd: 3', 'odd: 7', 'odd: 9']);
+    expect(oddOrEvenNums([3, 10, 9, 12])).to.eql(['odd: 3', 'even: 10', 'odd: 9', 'even: 12']);
+    expect(oddOrEvenNums([100, 101, 90, 1002])).to.eql(['even: 100', 'odd: 101', 'even: 90', 'even: 1002']);
+  })
+})
+
+describe("hasVacationRemaining", function () {
+
+  const people = [
+    {
+      name: "Kim",
+      vacationRemaining: false
+    },
+    {
+      name: "Lee",
+      vacationRemaining: true
+    },
+    {
+      name: "Sarah",
+      vacationRemaining: true
+    },
+    {
+      name: "Ted",
+      vacationRemaining: true
+    },
+    {
+      name: "Martha",
+      vacationRemaining: false
+    },
+  ];
+
+  const people2 = [
+    {
+      name: "James",
+      vacationRemaining: false,
+    },
+    {
+      name: "Melvin",
+      vacationRemaining: false,
+    }
+  ]
+  it("should not use the split method", function () {
+    const funcStr = hasVacationRemaining.toString();
+    expect(funcStr).to.not.include('.split');
+  })
+  
+  it("should return an array", function () {
+    expect(hasVacationRemaining()).to.be.an('array');
+  })
+
+  it("should return an array of the same length as the input array", function {
+    expect(hasVacationRemaining(people)).to.be.an('array').have.lengthof(5);
+    expect(hasVacationRemaining([{name: 'Apple', vacationRemaining: true}])).to.be.an('array').have.lengthof(1);
+  })
+
+  it("should return an array containing the expectd elements", function {
+    const answer1 = ['Kim', '*Lee*', '*Sarah*', '*Ted*', 'Martha'];
+    expect(hasVacationRemaining(people)).to.eql(answer1);
+    })
+    expect(hasVacationRemaining(people2)).to.eql(['James', 'Melvin']);
+    expect(hasVacationRemaining([{name: 'Apple', vacationRemaining: true}])).to.eql(['*Apple*'])
+})
 

@@ -261,7 +261,49 @@ describe("pageNumbers", function () {
 });
 
 
+describe("weatherSources", function () {
+  
+})
 
+describe('organizeBilliards', function () {
+  const billiardsSetup1 = [
+    [1],
+    [2,15],
+    [4,9,10],
+    [6,3,15,14],
+    [13,11,12,5,7,8]
+  ]; //=> false
+
+  const billiardsSetup2 = [
+    [1],
+    [2,9],
+    [4,8,10],
+    [6,3,15,14],
+    [13,11,12,5,7,15]
+  ]; //=> true
+
+  const billiardsSetup3 = [
+    [5],
+    [2,9],
+    [8,4,10],
+    [6,3,15,14],
+    [13,11,12,1,7,15]
+  ]
+
+  it("should return a boolean", function () {
+    expect(organizeBilliards(billiardsSetup1)).to.be.a('boolean');
+  })
+  it("should return the expected boolean", function () {
+    expect(organizeBilliards(billiardsSetup1)).to.deep.eq(false);
+  })
+  it("should return the expected boolean", function () {
+    expect(organizeBilliards(billiardsSetup2)).to.deep.eq(true);
+  })
+  it("should return the expected boolean", function () {
+    expect(organizeBilliards(billiardsSetup3)).to.deep.eq(false);
+  })
+
+})
 
 describe("warehouseBins", function () {
   
@@ -458,3 +500,242 @@ describe("killerRobots", function () {
     expect(killerRobots([...robotTalkC])).to.eql([true, true]);   
   });
 });
+
+
+describe("weatherPredictions", function () {
+
+  const sourcesA = {
+    source1: [
+        {
+          day: "Monday",
+          weather: 'rainy'  
+      },
+      {
+        day: 'Tuesday',
+        weather: "sunny"
+      },
+    ],
+    source2: [
+        {
+          day: "Monday",
+          weather: 'sunny'  
+      },
+      {
+        day: 'Tuesday',
+        weather: "sunny"
+      },
+    ],
+  }
+  const sourcesB = {
+    source1: [
+        {
+          day: "Monday",
+          weather: 'rainy'  
+      },
+      {
+        day: 'Tuesday',
+        weather: "sunny"
+      },
+    ],
+    source2: [
+        {
+          day: "Monday",
+          weather: 'sunny'  
+      },
+      {
+        day: 'Tuesday',
+        weather: "rainy"
+      },
+    ],
+  }
+  const sourcesC = {
+    source1: [
+      {
+        day: "Monday",
+        weather: 'rainy'
+      },
+      {
+        day: 'Tuesday',
+        weather: "rainy"
+      },
+      {
+        day: "Wednesday",
+        weather: 'rainy'
+      }
+    ],
+    source2: [
+      {
+        day: "Monday",
+        weather: 'rainy'
+      },
+      {
+        day: 'Tuesday',
+        weather: "rainy"
+      },
+      {
+        day: 'Wednesday',
+        weather: 'rainy'
+      }
+    ],
+  };
+
+   const sourcesD = {
+     source1: [
+       {
+         day: "Monday",
+         weather: "rainy",
+       },
+       {
+         day: "Tuesday",
+         weather: "rainy",
+       },
+       {
+         day: "Saturday",
+         weather: "sunny",
+       },
+     ],
+     source2: [
+       {
+         day: "Monday",
+         weather: "rainy",
+       },
+       {
+         day: "Tuesday",
+         weather: "rainy",
+       },
+       {
+         day: "Saturday",
+         weather: "sunny",
+       },
+     ],
+   };
+  
+   const sourcesE = {
+     source1: [
+       {
+         day: "Monday",
+         weather: "rainy",
+       },
+       {
+         day: "Tuesday",
+         weather: "rainy",
+       },
+       {
+         day: "Saturday",
+         weather: "sunny",
+       },
+     ],
+     source2: [
+       {
+         day: "Monday",
+         weather: "rainy",
+       },
+       {
+         day: "Tuesday",
+         weather: "rainy",
+       },
+       {
+         day: "Sunday",
+         weather: "sunny",
+       },
+     ],
+   };
+
+
+  it("should return a string", function () {
+    expect(weatherPredictions(sourcesA)).to.be.a('string');
+  })
+
+  it("should return \"reschedule\" if sunny days do not match or there are no sunny days", function () {
+    expect(weatherPredictions(sourcesB)).to.be.a('reschedule');
+    expect(weatherPredictions(sourcesC)).to.be.a('reschedule');
+    expect(weatherPredictions(sourcesE)).to.be.a('reschedule');
+  })
+
+  it("should return the correct day if sunny weather days match", function () {
+    expect(weatherPredictions(sourcesA)).to.be.a('Tuesday');
+    expect(weatherPredictions(sourcesD)).to.be.a('Saturday');
+  })
+})
+
+describe("shouldWeWalk", function () {
+   const people = [
+     {
+       name: "Tom",
+       "walking distance": 4,
+     },
+     {
+       name: "Shelly",
+       "walking distnace": 3,
+     },
+     {
+       name: "Wandile",
+       "walking distance": 5,
+     },
+     {
+       name: "Geoffrey",
+       "walking distance": 2,
+     },
+   ];
+
+   const people2 = [
+     {
+       name: "Sam",
+       "walking distance": 10,
+     },
+   
+   ];
+
+  it("should return a boolean", function () {
+    expect(shouldWeWalk(people, 3)).to.be.a('boolean');
+  })
+
+  it("should return the expected boolean", function () {
+    expect(shouldWeWalk(people, 3)).to.deep.eq(false);
+    expect(shouldWeWalk(people, 1)).to.deep.eq(true);
+    expected(shouldWeWalk(people2, 10)).to.deep.eq(true);
+  })
+})
+
+describe("whoWillWalk", function () {
+   const people = [
+     {
+       name: "Tom",
+       "walking distance": 4,
+     },
+     {
+       name: "Shelly",
+       "walking distnace": 3,
+     },
+     {
+       name: "Wandile",
+       "walking distance": 5,
+     },
+     {
+       name: "Geoffrey",
+       "walking distance": 2,
+     },
+   ];
+
+   const people2 = [
+     {
+       name: "Sam",
+       "walking distance": 10,
+     },
+   
+   ];
+
+  it("should return an array", function () {
+    expect(shouldWeWalk(people, 3)).to.be.an('array');
+  })
+
+  it("should return an array of the correct names", function () {
+    expect(shouldWeWalk(people, 3)).to.eql(['Tom', 'Shelly', 'Wandile']);
+    expect(shouldWeWalk(people, 1)).to.eql(['Tom', 'Shelly', 'Wandile', 'Geoffrey']);
+    expected(shouldWeWalk(people2, 10)).to.deep.eq(['Sam']);
+  })
+
+  it("should return an empty array if no one will walk", function () {
+    expected(shouldWeWalk(people2, 11)).to.deep.eq([]);
+  })
+})

@@ -41,11 +41,16 @@ function signedIn(status, name) {
 //5 Odd or Even Numbers
 //Given an array of number, return a new array of strings where the number is concated with whether it is odd or even, plus a colon, plus space and the number.
  
+function oddOrEvenNums(nums) {
 
+}
 
-//6 Vacation left
+//6 Has Vacation Remaining
 
-//Given an array of objects that tell whether a person used all their vacation or not, return a new array with the persons name surrounded by '*' is they have time off.
+//Given an array of objects that tell whether a person used all their vacation or not, return a new array with people's names surrounded by '*' if they have vacation remaining.
 
+function hasVacationRemaining() {
+  
+}
 
 
