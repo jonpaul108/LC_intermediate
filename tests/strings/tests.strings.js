@@ -2,11 +2,11 @@ describe("backwards", function () {
 
   it("should not use String.split method", function () {
     const funcStr = backwards.toString();
-    expected(funcStr).to.not.include('.split');
+    expect(funcStr).to.not.include('.split');
   })
 
   it("should return a string", function () {
-    expected(backwards('lol')).to.be.a("string");
+    expect(backwards('lol')).to.be.a("string");
   });
 
    it("should return the given string reversed", function () {
@@ -21,17 +21,17 @@ describe("everyOtherChar", function () {
 
   it("should not use String.split method", function () {
     const funcStr = everyOtherChar.toString();
-    expected(funcStr).to.not.include(".split");
+    expect(funcStr).to.not.include(".split");
   });
 
   it("should return a string", function () {
-    expected(everyOtherChar("lol")).to.be.a("string");
+    expect(everyOtherChar("lol")).to.be.a("string");
   });
 
   it("should return the expected string", function () {
-    expect(backwards("shwoitmj")).to.deep.eq("swim");
-    expect(backwards("gkloure")).to.deep.eq("glue");
-    expect(backwards("abt")).to.deep.eq("at");
+    expect(everyOtherChar("shwoitmj")).to.deep.eq("swim");
+    expect(everyOtherChar("gkloure")).to.deep.eq("glue");
+    expect(everyOtherChar("abt")).to.deep.eq("at");
   });
 });
 
@@ -47,9 +47,9 @@ describe("everyThirdChar", function () {
   });
 
   it("should return the expected string", function () {
-    expect(everyThirdChar("drteghlsdbiomweusfj")).to.deep.eq("jumbled");
-    expect(everyThirdChar("oerwtyt")).to.deep.eq("two");
     expect(everyThirdChar("tlka")).to.deep.eq("at");
+    expect(everyThirdChar("oerwtyt")).to.deep.eq("two");
+    expect(everyThirdChar("drteghlsdbiomweusfj")).to.deep.eq("jumbled");
   });
 });
 
@@ -84,7 +84,7 @@ describe('signedIn', function () {
   })
 
   it("should return a string", function () {
-    expect(singedIn({
+    expect(signedIn({
       Tom: {
         signedIn: false,
         lastSignIn: '07/01/2021'
@@ -95,7 +95,7 @@ describe('signedIn', function () {
   it("should return a string containing the given name", function () {
     expect(signedIn(people, 'Wilma')).to.include("Wilma");
     expect(signedIn(people, 'Jesse')).to.include("Jesse");
-      expect(singedIn({
+      expect(signedIn({
       Tom: {
         signedIn: false,
         lastSignIn: '07/01/2021'
@@ -106,7 +106,7 @@ describe('signedIn', function () {
   it("should return a string containing the correct logged in status", function () {
     expect(signedIn(people, 'Wilma')).to.include("signed in");
     expect(signedIn(people, 'Fred')).to.include("signed out");
-      expect(singedIn({
+      expect(signedIn({
       Tom: {
         signedIn: false,
         lastSignIn: '07/01/2021'
@@ -140,14 +140,10 @@ describe('signedIn', function () {
 
 describe("oddOrEvenNums", function () {
   
-  it("should not use the \"split\" method", function () {
-    const funcStr = oddOrEvenNums.toString();
-    expect(funcStr).to.not.include('.split');
-  })
 
   it("should return an array with the same length as the input array", function () {
-    expect(oddOrEvenNums([3, 7, 9])).to.have.lengthof(3);
-    expect(oddOrEvenNums([3, 10, 9, 12])).to.have.lengthof(4);
+    expect(oddOrEvenNums([3, 7, 9])).to.have.lengthOf(3);
+    expect(oddOrEvenNums([3, 10, 9, 12])).to.have.lengthOf(4);
   })
 
   it("should return an array containing the expected strings", function () {
@@ -198,12 +194,12 @@ describe("hasVacationRemaining", function () {
   })
   
   it("should return an array", function () {
-    expect(hasVacationRemaining()).to.be.an('array');
+    expect(hasVacationRemaining(people)).to.be.an('array');
   })
 
   it("should return an array of the same length as the input array", function () {
-    expect(hasVacationRemaining(people)).to.be.an('array').have.lengthof(5);
-    expect(hasVacationRemaining([{name: 'Apple', vacationRemaining: true}])).to.be.an('array').have.lengthof(1);
+    expect(hasVacationRemaining(people)).to.be.an('array').have.lengthOf(5);
+    expect(hasVacationRemaining([{name: 'Apple', vacationRemaining: true}])).to.be.an('array').have.lengthOf(1);
   })
 
   it("should return an array containing the expectd elements", function () {

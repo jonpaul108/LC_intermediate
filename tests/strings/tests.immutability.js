@@ -59,3 +59,4 @@ describe('uppercaseFromIndex', function () {
        expect(uppercaseFromIndex("wee shrimp", 4)).to.deep.eq("wee SHRIMP");
      });
 })
+
