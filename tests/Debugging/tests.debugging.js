@@ -41,7 +41,7 @@ describe("tookVacation", function () {
   })
 
   it("should return an array of the correct length", function () {
-    expect(tookVacation([1, 10, 10, 3])).to.be.an('array').have.lengthof(3)
+    expect(tookVacation(vacation)).to.be.an('array').have.lengthOf(3)
   })
 
   it("should return an empty array if no one took vacation", function () {
@@ -74,11 +74,6 @@ describe('greatestSum', function () {
     [100],
   ];
 
-  const listOfNums3 = [
-    [-1, -1, -1],
-    [-2, -2, -2],
-  ];
-
 
   it("should return a number", function (){
     expect(greatestSum(listOfNums)).to.be.a("number");
@@ -88,7 +83,6 @@ describe('greatestSum', function () {
     expect(greatestSum(listOfNums)).to.deep.eq(96);
     expect(greatestSum([[5, 8, 3]])).to.deep.eq(16);
     expect(greatestSum(listOfNums2)).to.deep.eq(100);
-    expect(greatestSum(listOfNums3)).to.deep.eq(-3);
   })
 })
 
@@ -129,7 +123,7 @@ describe('stringFromValues', function () {
 
   const words2 = {
     messageA: 'love ',
-    messageB: 'animals.',
+    messageB: 'am.',
     messageC: 'I '
   }
 
@@ -147,7 +141,7 @@ describe('stringFromValues', function () {
       "You are a wonderful person."
     );
     expect(stringFromValues(words2, arrOfKeys3)).to.deep.eq(
-      "I love animals."
+      "I am."
     );
   })
 })
@@ -163,8 +157,8 @@ describe('indexOrNone', function () {
   })
 
   it("should return the expected array", function () {
-    expect(indexOrNone(wordArr, 'e')).to.eql([0, 1, 'none', 'none', 'none', 1]);
-    expect(indexOrNone(wordArr, "a")).to.eql([
+    expect(indexOrNone(wordArr, 'a')).to.eql([0, 1, 'none', 'none', 'none', 1]);
+    expect(indexOrNone(wordArr, "e")).to.eql([
       "none",
       "none",
       1,
@@ -173,7 +167,7 @@ describe('indexOrNone', function () {
       3,
     ]);
     expect(indexOrNone(['watermelon'], 'w')).to.eql([0])
-    expect(indexOrNone(['jet', 'z'])).to.eql(['none']);
+    expect(indexOrNone(['jet'], 'z')).to.eql(['none']);
   })
 })
 
@@ -183,7 +177,7 @@ describe('newspaperDelivery', function () {
     expect(newspaperDelivery([101, 100, 99, 98])).to.be.an('array');
   })
 
-  it("should return the expeted array of odd numbers", function () {
+  it("should return the expected array of odd numbers", function () {
     expect(newspaperDelivery([101, 100, 99, 98])).to.eql([101, 99]);
     expect(newspaperDelivery([5, 6])).to.eql([5]);
     expect(newspaperDelivery([10, 11, 12, 13, 14, 15, 16])).to.eql([11, 13, 15]);
@@ -254,7 +248,7 @@ describe("hungryCaterpillars", function () {
   it("should return the expected number of times the given food is appears", function () {
     expect(hungryCaterpillars(eatingHabits, 'apple')).to.deep.eq(3);
     expect(hungryCaterpillars(eatingHabits, 'tomato')).to.deep.eq(2);
-    expect(hungryCaterpillars(eatingHabits, 'ice cream')).to.deep.eq(2);
+    expect(hungryCaterpillars(eatingHabits, 'ice cream')).to.deep.eq(3);
     expect(hungryCaterpillars(eatingHabits, 'grapefruit')).to.deep.eq(0);
   })
 })

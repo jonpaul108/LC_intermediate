@@ -255,7 +255,7 @@ describe("highScoringPlayersB", function () {
     ]);
   });
 
-  it("should return an empty array if no player have points at or above the target", function () {
+  it("should return an empty array if no players have points at or above the target", function () {
     expect(highScoringPlayersB([], 0)).to.eql([]);
     expect(highScoringPlayersB(arr3, 11)).to.eql([]);
   });

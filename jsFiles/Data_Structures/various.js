@@ -7,21 +7,29 @@
   3) the target child's name
 */
 
+function chubbyBunny(children, responses, name) {
+  return responses[children[name]];
+}
 
-
-var name1 = "Kim";
-var actual1 = chubbyBunny(children, responses, name1);
+// var name1 = "Kim";
+// var actual1 = chubbyBunny(children, responses, name1);
 
 
 
 //chess sabotage
 //given an object of arrays and a key, replace all the 'pawn' pieces at the key with 'queen'
-//return the updated array (do not make a copy)
+//return the updated object (do not make a copy)
 
 
 
-function chessSabotage(board) {
-
+function chessSabotage(board, key) {
+  const arr = board[key];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 'pawn') {
+      arr[i] = 'queen';
+    }
+  }
+  return board;
 }
 
 //Word Clouds - intermediate
@@ -54,11 +62,23 @@ var words = [
   "candy",
 ];
 
-var actual1 = wordClouds(words, "donuts");
-var expected1 = "huge";
+function wordClouds(words, word) {
+  const appear = ['small', 'medium', 'large', 'huge'];
+  let count = words.reduce((acc, curr) => {
+    if (curr === word) {
+      return acc + 1;
+    }
+    return acc;
+  }, 0);
+  return appear[count - 1];
 
-var actual2 = wordClouds(words, "candy");
-var expected = "medium";
+}
+
+// var actual1 = wordClouds(words, "donuts");
+// var expected1 = "huge";
+
+// var actual2 = wordClouds(words, "candy");
+// var expected = "medium";
 
 
 
@@ -66,14 +86,18 @@ var expected = "medium";
 
 // page numbers 1
 /*
-Given an array of strings (words) and object containing book information (info), return a new array of the page numbers where the words could be found. The page numbers in the new array should match the order of the words in the given words array.
+Given an array of strings (words) and object containing book information (info), return a new array of the page numbers where the words are found. The page numbers in the new array should match the order of the words in the given words array.
 If the word is not in the info object, put a zero in its place in the new array.
 
 Each key in the given object will have a number as a value.
 */
 
 function pageNumbers(words, info) {
-
+  const nums = [];
+  for (let i = 0; i < words.length; i++) {
+    nums[i] = info[words[i]] ? info[words[i]] : 0;
+  }
+  return nums;
 }
 
 
@@ -103,10 +127,14 @@ var binNames = {
 };
 
 function warehouseBins(items, bins) {
-
+  for (var i = 0; i < items.length; i++) {
+    bins[items[i].type].push(items[i].item);
+  }
+  console.log('bins',bins);
+  return bins;
 }
 
-console.log(warehouseBins(unsortedItems, binNames)); // ==> 
+// console.log(warehouseBins(unsortedItems, binNames)); // ==> 
 /*
   {
     homegoods: ['desk', 'lamp', 'towel', 'bed frame'],
@@ -135,15 +163,19 @@ var attempts = [
 ]
 
 function receivedTreats(actions) {
+  return actions.reduce((acc, curr) => {
+    return acc + (curr.action === "brought the paper" ? 1 : 0);
+  }, 0)
+  
 
 }
 
-console.log(howManyTreats(attempts)); //==> 3
+// console.log(receivedTreats(attempts)); //==> 3
 
 
 
 //-----------
- Killer Robots
+// Killer Robots
 
 /*
 There are killer robots on the loose! And they look like all the other robots. There is only one way to tell the robots apart: by what they say. 
@@ -166,10 +198,14 @@ var robotTalk = [
 ]
 
 function killerRobots(strings) {
-
+  return strings.reduce((acc, curr) => {
+    const killer = curr.str.split(' ').length % 4 === 0 ? true : false;
+    acc[acc.length] = killer;
+    return acc;
+  },[])
 }
 
-console.log(killerRobots(robotTalk)); //=> [false, true, false, true, false, false]
+// console.log(killerRobots(robotTalk)); //=> [false, true, false, true, false, false]
 
 
 //--------------------
@@ -202,8 +238,8 @@ var billiardsSetup2 = [
 ]; //=> true
 
 
-function readyToPlay(arr) {
-  
+function organizeBilliards(arr) {
+  return arr[2][1] === 8;
 }
 
 //Weather predictions
@@ -215,10 +251,19 @@ function readyToPlay(arr) {
 // - at most, one sunny day will match 
 // - it is possible no days will match.
 // - both sources will always have the same length
+// - sources will always have the same days 
+// - the given object will always have properties 'source1' and 'source2'
 
 
-function weatherPrediction(sources) {
-
+function weatherPredictions(sources) {
+  const sourceA = sources.source1;
+  const sourceB = sources.source2;
+  for (let i = 0; i < sourceA.length; i++) {
+    if (sourceA[i].weather === 'sunny' && sourceA[i].weather === sourceB[i].weather) {
+      return sourceA[i].day;
+    }
+  }
+  return 'reschedule';
 }
 
 //shouldWeWalk
@@ -244,18 +289,27 @@ function weatherPrediction(sources) {
   ];
 
 function shouldWeWalk(people, distance) {
-    
+  for (const person of people) {
+    if (person['walking distance'] < distance) {
+      return false;
+      }
+  }
+  return true;
   }
   
-  var distance = 3;
-  var expected = false;
+//   var distance = 3;
+//   var expected = false;
   
-  //should we walk 2
-    //return a new array of the people who are willing to walk that distance
+//   //should we walk 2
+//     //return a new array of the people who are willing to walk that distance
     
-  var distance = 4;
-var expected = ['Tom', 'Wandile'];
+//   var distance = 4;
+// var expected = ['Tom', 'Wandile'];
   
 //Who will walk?
 
-//similar to the aobve, this tie return an aray of people who will walk
+//similar to the above, return an array of people who who will walk the given distance.
+
+function whoWillWalk(people, distance) {
+  return people.filter(el => el['walking distance'] >= distance).map(el => el.name)
+}

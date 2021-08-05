@@ -201,12 +201,12 @@ describe("hasVacationRemaining", function () {
     expect(hasVacationRemaining()).to.be.an('array');
   })
 
-  it("should return an array of the same length as the input array", function {
+  it("should return an array of the same length as the input array", function () {
     expect(hasVacationRemaining(people)).to.be.an('array').have.lengthof(5);
     expect(hasVacationRemaining([{name: 'Apple', vacationRemaining: true}])).to.be.an('array').have.lengthof(1);
   })
 
-  it("should return an array containing the expectd elements", function {
+  it("should return an array containing the expectd elements", function () {
     const answer1 = ['Kim', '*Lee*', '*Sarah*', '*Ted*', 'Martha'];
     expect(hasVacationRemaining(people)).to.eql(answer1);
     })

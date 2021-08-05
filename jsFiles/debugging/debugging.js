@@ -17,6 +17,8 @@ function findTen(arr) {
   }
 }
 
+
+
 // console.log('debug 1:', findTen([1,6,10,3])); // => 2
 // console.log('debug 1:', findTen([1,6,5,9])); // => -1
 
@@ -39,6 +41,8 @@ function tookVacation(arr) {
     return names;
   }
 }
+
+
 
 var vacation = [
   {
@@ -78,11 +82,10 @@ var listOfNums = [
 function greatestSum(arr) {
   var greatest = 0;
   var currSum = 0;
-  for (var i = 0; i < arr.length; i ++) {
+  for (var i = 0; i < arr.length; i++) {
    // var currSum = 0;
-    for (var j = 0; j < arr[i].length; j ++) {
+    for (var j = 0; j < arr[i].length; j++) {
       currSum += arr[i][j];
-      console.log('currSum:', currSum);
     }
     if (currSum > greatest) {
       greatest = currSum;
@@ -99,7 +102,7 @@ console.log(greatestNums(listOfNums)); // => 96;
 //-----------------
 
 //stringFromValues
-//given an object and an array of all the object keys, return a string of every other value concatenated togther 
+//given an object and an array of all the object keys, return a string of every other property concatenated together 
 
 var objOfStr = {
   key1: 'My ',
@@ -116,7 +119,7 @@ var arrOfKeys1 = ['key1', 'key2', 'key3', 'key4', 'key5', 'key6', 'key7', 'key8'
 
 var arrOfKeys2 = ['key2', 'key1', 'key4', 'key3', 'key6', 'key5', 'key8', 'key7'];
 
-function findValues(obj, arr) {
+function stringFromValues(obj, arr) {
   var str = '';
   for (var i = 0; i < arr.length; i ++) {
     str + obj[arr[i]];
@@ -136,7 +139,7 @@ var wordArr = ["aim", "tail", "series", "kitten", "fruit", "paper"];
 function indexOrNone(arr, char) {
   var indexOfChar = [];
   var ind = arr[i].indexOf(char);
-  for (var i = 0; i < arr; i++) {
+  for (var i = 0; i < arr.length; i++) {
     if (ind !== -1) {
       indexOfChar.push(arr[i][ind]);
     } else {
@@ -145,6 +148,7 @@ function indexOrNone(arr, char) {
   }
   return indexOfChar;
 }
+
 
 
 // actualInd1 = indexes(wordArr, 'a');
@@ -158,7 +162,7 @@ function indexOrNone(arr, char) {
 
 
 //Newspaper delivery - 
-      //James and Todd live in the 1960's, when paper routes were common among kids. Jame's job is deliver paper to each house with an odd number. 
+      //James and Todd live in the 1960's, when paper routes were common among kids. Jame's job is to deliver paper to each house with an odd number. 
       // Odd number houses always appear every other number. However, the starting number of the list could be even or odd.
       //Gather all the odd number houses from the given list and return a new list for Jame's to follow. 
 
@@ -247,7 +251,7 @@ var eatingHabits = [
 function hungryCaterpillars(arr, food) {
   for (var i = 0; i < arr.length; i++) {
     var count = 0;
-    for (var j = 0; J < arr[i].length; j++) {
+    for (var j = 0; j < arr[i].length; j++) {
       if (arr[i][j] === food) {
         count++;
       }
@@ -255,6 +259,7 @@ function hungryCaterpillars(arr, food) {
   }
   return count;
 }
+
 // console.log('caterpillars a: ', hungryCaterpillars(eatingHabits, 'apple')) //=> 3
 // console.log('caterpillars a: ', hungryCaterpillars(eatingHabits, 'tomato')); //=> 2
       

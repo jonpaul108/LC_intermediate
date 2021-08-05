@@ -45,8 +45,8 @@ describe('chubbyBunny', function () {
    it("should return the correct response", function () {
      expect(chubbyBunny(players1, responses1, "Lisa")).to.deep.eq("okay");
      expect(chubbyBunny(players1, responses1, "James")).to.deep.eq("pretty good");
-     expect(chubbyBunny(players2, responses2, "Kelly")).to.deep.eq("super");
-     expect(chubbyBunny(players1, responses2, "Tim")).to.deep.eq("meh");
+     expect(chubbyBunny(players2, responses2, "Kelly")).to.deep.eq("fantastic");
+     expect(chubbyBunny(players1, responses2, "Tim")).to.deep.eq("hmmm");
    });
 
   
@@ -70,29 +70,29 @@ describe("wordClouds", function () {
   const words2 = ["a", "a", "a", "a", "b", "b", "b", "c", "c", "d"];
 
   it("Should return a string", function () {
-    expected(wordClouds(words1, "donuts")).to.be.a("string");
+    expect(wordClouds(words1, "donuts")).to.be.a("string");
   });
 
   it("Should return one of four possible words equating to a size", function () {
-    expected(["huge", "medium", "small", "large"]).to.include(
+    expect(["huge", "medium", "small", "large"]).to.include(
       wordClouds(words1, "sprinkles")
     );
-    expected(["huge", "medium", "small", "large"]).to.include(
+    expect(["huge", "medium", "small", "large"]).to.include(
       wordClouds(words1, "donuts")
     );
-    expected(["huge", "medium", "small", "large"]).to.include(
+    expect(["huge", "medium", "small", "large"]).to.include(
       wordClouds(words1, "candy")
     );
-    expected(["huge", "medium", "small", "large"]).to.include(
+    expect(["huge", "medium", "small", "large"]).to.include(
       wordClouds(words2, "d")
     );
   });
 
   it("Should return the correct word size", function () {
-    expected(wordClouds(words1, "donuts")).to.deep.eq("huge");
-    expected(wordClouds(words1, "candy")).to.deep.eq("medium");
-    expected(wordClouds(words2, "d")).to.deep.eq("small");
-    expected(wordClouds(words2, "b")).to.deep.eq("large");
+    expect(wordClouds(words1, "donuts")).to.deep.eq("huge");
+    expect(wordClouds(words1, "candy")).to.deep.eq("medium");
+    expect(wordClouds(words2, "d")).to.deep.eq("small");
+    expect(wordClouds(words2, "b")).to.deep.eq("large");
   });
 });
 
@@ -149,31 +149,18 @@ describe("chessSabotage", function () {
     expect(chessSabotage(obj, "row1")).to.eq(obj);
   })
 
-  it("should modify the correct row", function () {
+  it("should update the specified array's \'pawn\'s\' changed to \'queen\' ", function () {
     const obj = { ...chessRows };
-    expect(chessSabotage({...obj}, "row4").row4).to.not.eql(obj.row4);
-    expect(chessSabotage({...obj}, "row2").row3).to.eql(obj.row3)
-  });
-
-    it("should modify the correct row", function () {
-      const obj = { ...chessRows };
-      expect(chessSabotage({ ...obj }, "row4").row4).to.not.eql(obj.row4);
-      expect(chessSabotage({ ...obj }, "row3").row3).to.eql(obj.row3);
-    });
-
-  it("should update the specified array's 'pawn's changed to 'queen' ", function () {
-      const obj = { ...chessRows };
-      expect(chessSabotage({ ...obj }, "row4").row4).to.not.eql(obj.row4);
-      expect(chessSabotage({ ...obj }, "row3").row3).to.eql([
-        "knight",
-        "empty",
-        "empty",
-        "queen",
-        "empty",
-        "knight",
-        "bishop",
-        "empty",
-      ]);
+    expect(chessSabotage({ ...obj }, "row3").row3).to.eql([
+      "knight",
+      "empty",
+      "empty",
+      "queen",
+      "empty",
+      "knight",
+      "bishop",
+      "empty",
+    ]);
     expect(chessSabotage({ ...obj }, "row6").row6).to.eql([
       "empty",
       "empty",
@@ -243,7 +230,7 @@ describe("pageNumbers", function () {
   });
 
   it("should not modify the input object", function () {
-    const obj = [...info1];
+    const obj = { ...info1 };
     pageNumbers([...words1], obj);
     expect(obj).to.eql(info1);
   }); 
@@ -252,9 +239,9 @@ describe("pageNumbers", function () {
     expect(pageNumbers([...words1], { ...info1 })).to.eql([400, 0, 10, 45, 0, 0, 3]);
   });
 
-  it("should return the expected array with any valid inputs", function () {
+  it("should return the expected array", function () {
     expect(pageNumbers([...words1], { ...info2 })).to.eql([400, 0, 10, 0, 0, 0, 3]);
-    expect(pageNumbers([...words1], [...info2])).to.eql([400, 0, 10, 0, 0, 0, 3]);
+    expect(pageNumbers([...words1], { ...info2 })).to.eql([400, 0, 10, 0, 0, 0, 3]);
     expect(pageNumbers(['gravity', 'cheeky', 'figurative'], {figurative:1, gravity: 1 })).to.eql([1,0,1])
   })
 
@@ -344,12 +331,19 @@ describe("warehouseBins", function () {
   };
 
   const binNames2 = {
-    banana: [],
+    fruit: [],
     dental: []
   }
 
+  function copyArraysToObj(obj) {
+    return Object.keys(obj).reduce((acc, el) => {
+      acc[el] = [...obj[el]];
+      return acc;
+    }, {})
+  }
+
   it("should return an object", function () {
-    expect(warehouseBins([...unsortedItems1], { ...binNames1 })).to.be.an("object");
+    expect(warehouseBins([...unsortedItems1], copyArraysToObj(binNames1))).to.be.an("object");
   });
 
   it("should not use Object.keys, Object.values, or Objects.entries", function () {
@@ -362,7 +356,9 @@ describe("warehouseBins", function () {
 
 
   it("should return the expected object based on the example inputs", function () {
-    expect(warehouseBins([...unsortedItems1 ], { ...binNames1 })).to.eql({
+    expect(
+      warehouseBins([...unsortedItems1], copyArraysToObj(binNames1))
+    ).to.eql({
       homegoods: ["desk", "lamp", "towel", "bed frame"],
       electronics: ["laptop", "mouse"],
       skincare: ["moisturizer", "sunscreen"],
@@ -370,17 +366,23 @@ describe("warehouseBins", function () {
   });
 
   it("should return the expected modified object with any valid inputs", function () {
-     expect(warehouseBins([...unsortedItems1], { ...binNames1 })).to.eql({
+     expect(
+       warehouseBins([...unsortedItems1], copyArraysToObj(binNames1))
+     ).to.eql({
        homegoods: ["desk", "lamp", "towel", "bed frame"],
        electronics: ["laptop", "mouse"],
        skincare: ["moisturizer", "sunscreen"],
      });
-     expect(warehouseBins([...unsortedItems3], { ...binNames1 })).to.eql({
+     expect(
+       warehouseBins([...unsortedItems3], copyArraysToObj(binNames1))
+     ).to.eql({
        homegoods: ["table", "couch", "towel"],
        electronics: ["laptop", "ipad"],
        skincare: ["moisturizer"],
      });
-     expect(warehouseBins([...unsortedItems2], { ...binNames2 })).to.eql({
+     expect(
+       warehouseBins([...unsortedItems2], copyArraysToObj(binNames2))
+     ).to.eql({
        fruit: ["banana", "apple"],
        dental: ["toothbrush"],
      });
@@ -414,20 +416,20 @@ describe("receivedTreats", function () {
   });
 
   it("should return the correct number based on the example input", function () {
-    expect(warehouseBins([...attempts])).to.deep.eq(3);
+    expect(receivedTreats([...attempts])).to.deep.eq(3);
   });
 
   it("should return the expected number", function () {
     expect(
-      warehouseBins([{ day: "Tuesday", action: "brought the paper" }])
+      receivedTreats([{ day: "Tuesday", action: "brought the paper" }])
     ).to.deep.eq(1);
   
     expect(
-      warehouseBins([{ day: "Saturday", action: "went to sleep" }])
+      receivedTreats([{ day: "Saturday", action: "went to sleep" }])
     ).to.deep.eq(0);
   
     expect(
-      warehouseBins([
+      receivedTreats([
         { day: "Friday", action: "went to sleep" },
         { day: "Saturday", action: "brought the paper" },
         { day: "Saturday", action: "brought the paper" },
@@ -469,7 +471,7 @@ describe("killerRobots", function () {
 
 
   it("should return an array", function () {
-    expect(receivedTreats([...robotTalk])).to.be.an("array");
+    expect(killerRobots([...robotTalk])).to.be.an("array");
   });
 
   it("should not use Object.keys, Object.values, or Objects.entries", function () {
@@ -635,7 +637,7 @@ describe("weatherPredictions", function () {
          weather: "rainy",
        },
        {
-         day: "Sunday",
+         day: "Saturday",
          weather: "sunny",
        },
      ],
@@ -647,14 +649,13 @@ describe("weatherPredictions", function () {
   })
 
   it("should return \"reschedule\" if sunny days do not match or there are no sunny days", function () {
-    expect(weatherPredictions(sourcesB)).to.be.a('reschedule');
-    expect(weatherPredictions(sourcesC)).to.be.a('reschedule');
-    expect(weatherPredictions(sourcesE)).to.be.a('reschedule');
+    expect(weatherPredictions(sourcesB)).to.deep.eq('reschedule');
+    expect(weatherPredictions(sourcesC)).to.deep.eq('reschedule');
   })
 
   it("should return the correct day if sunny weather days match", function () {
-    expect(weatherPredictions(sourcesA)).to.be.a('Tuesday');
-    expect(weatherPredictions(sourcesD)).to.be.a('Saturday');
+    expect(weatherPredictions(sourcesA)).to.deep.eq('Tuesday');
+    expect(weatherPredictions(sourcesD)).to.deep.eq('Saturday');
   })
 })
 
@@ -666,7 +667,7 @@ describe("shouldWeWalk", function () {
      },
      {
        name: "Shelly",
-       "walking distnace": 3,
+       "walking distance": 3,
      },
      {
        name: "Wandile",
@@ -693,7 +694,7 @@ describe("shouldWeWalk", function () {
   it("should return the expected boolean", function () {
     expect(shouldWeWalk(people, 3)).to.deep.eq(false);
     expect(shouldWeWalk(people, 1)).to.deep.eq(true);
-    expected(shouldWeWalk(people2, 10)).to.deep.eq(true);
+    expect(shouldWeWalk(people2, 10)).to.deep.eq(true);
   })
 })
 
@@ -705,7 +706,7 @@ describe("whoWillWalk", function () {
      },
      {
        name: "Shelly",
-       "walking distnace": 3,
+       "walking distance": 3,
      },
      {
        name: "Wandile",
@@ -726,16 +727,16 @@ describe("whoWillWalk", function () {
    ];
 
   it("should return an array", function () {
-    expect(shouldWeWalk(people, 3)).to.be.an('array');
+    expect(whoWillWalk(people, 3)).to.be.an('array');
   })
 
   it("should return an array of the correct names", function () {
-    expect(shouldWeWalk(people, 3)).to.eql(['Tom', 'Shelly', 'Wandile']);
-    expect(shouldWeWalk(people, 1)).to.eql(['Tom', 'Shelly', 'Wandile', 'Geoffrey']);
-    expected(shouldWeWalk(people2, 10)).to.deep.eq(['Sam']);
+    expect(whoWillWalk(people, 3)).to.eql(['Tom', 'Shelly', 'Wandile']);
+    expect(whoWillWalk(people, 1)).to.eql(['Tom', 'Shelly', 'Wandile', 'Geoffrey']);
+    expect(whoWillWalk(people2, 10)).to.deep.eq(['Sam']);
   })
 
   it("should return an empty array if no one will walk", function () {
-    expected(shouldWeWalk(people2, 11)).to.deep.eq([]);
+    expect(whoWillWalk(people2, 11)).to.deep.eq([]);
   })
 })

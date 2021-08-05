@@ -78,11 +78,10 @@ function coffeePriceInfo(arr) {
   let expensive = arr[0].regions[0];
   let sum = 0;
   let count = 0;
-  console.log(arr);
+
   for (let obj of arr) {
     const curr = obj.regions;
     for (let reg of curr) {
-      console.log(cheapest["price per container"], reg['price per container']);
       if (cheapest["price per container"] > reg["price per container"]) {
         cheapest = reg;
       }
@@ -93,11 +92,7 @@ function coffeePriceInfo(arr) {
       count++;
     }
   }
-  console.log({
-    "cheapest region": cheapest.region,
-    "most expensive region": expensive.region,
-    average: sum / count,
-  });
+
   return {
     "cheapest region": cheapest.region,
     "most expensive region": expensive.region,
