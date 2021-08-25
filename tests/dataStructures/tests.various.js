@@ -215,6 +215,11 @@ describe("pageNumbers", function () {
     expect(pageNumbers(words1, info1)).to.be.an('array');
   });
 
+  it("should not use a for...in loop", function () {
+    const funcStr = pageNumbers.toString();
+    expect(funcStr).to.not.include("in");
+  });
+
   it("should not use Object.keys, Object.values, or Objects.entries", function () {
     const funcStr = pageNumbers.toString();
     expect(funcStr).to.not.include('Object.keys');
@@ -346,14 +351,17 @@ describe("warehouseBins", function () {
     expect(warehouseBins([...unsortedItems1], copyArraysToObj(binNames1))).to.be.an("object");
   });
 
+ it("should not use a for...in loop", function () {
+   const funcStr = warehouseBins.toString();
+   expect(funcStr).to.not.include("in");
+ });
+
   it("should not use Object.keys, Object.values, or Objects.entries", function () {
     const funcStr = warehouseBins.toString();
     expect(funcStr).to.not.include("Object.keys");
     expect(funcStr).to.not.include("Object.values");
     expect(funcStr).to.not.include("Object.entries");
   });
-
-
 
   it("should return the expected object based on the example inputs", function () {
     expect(

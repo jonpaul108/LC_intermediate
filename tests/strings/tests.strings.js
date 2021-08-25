@@ -29,6 +29,7 @@ describe("everyOtherChar", function () {
   });
 
   it("should return the expected string", function () {
+    expect(everyOtherChar('o n e')).to.deep.eq('one');
     expect(everyOtherChar("shwoitmj")).to.deep.eq("swim");
     expect(everyOtherChar("gkloure")).to.deep.eq("glue");
     expect(everyOtherChar("abt")).to.deep.eq("at");
