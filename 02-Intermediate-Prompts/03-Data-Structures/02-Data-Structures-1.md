@@ -232,8 +232,7 @@ describe("wordClouds", function () {
 
 ### !question 
 
-Given an object of arrays `board` and a key `row`, replace all the 'pawn' pieces at the key with 'queen'
-Return the input object updated (do not make a copy)
+Given an object of arrays `board` and a key `row`, replace all the 'pawn' pieces at the key with 'queen'. Return the input object with the specified row updated (do not make a copy).
 ```js
   var chessBoard = {
     row1: [
@@ -246,7 +245,16 @@ Return the input object updated (do not make a copy)
       "queen",
       "empty",
     ],
-    row2: ["empty", "pawn", "pawn", "empty", "empty", "pawn", "bishop", "pawn"],
+    row2: [
+      "empty", 
+      "pawn", 
+      "pawn", 
+      "empty", 
+      "empty", 
+      "pawn", 
+      "bishop", 
+      "pawn"
+      ],
     row3: [
       "knight",
       "empty",
@@ -257,7 +265,16 @@ Return the input object updated (do not make a copy)
       "bishop",
       "empty",
     ],
-    row4: ["pawn", "empty", "pawn", "pawn", "empty", "", "empty", "bishop"],
+    row4: [
+      "pawn", 
+      "empty", 
+      "pawn", 
+      "pawn", 
+      "empty", 
+      "empty", 
+      "empty", 
+      "bishop"
+    ],
     row5: [
       "empty",
       "empty",
@@ -278,8 +295,26 @@ Return the input object updated (do not make a copy)
       "knight",
       "empty",
     ],
-    row7: ["pawn", "pawn", "empty", "empty", "bishop", "pawn", "pawn", "pawn"],
-    row8: ["rook", "empty", "empty", "king", "empty", "rook", "queen", "empty"],
+    row7: [
+      "pawn", 
+      "pawn", 
+      "empty", 
+      "empty", 
+      "bishop", 
+      "pawn", 
+      "pawn", 
+      "pawn"
+      ],
+    row8: [
+      "rook", 
+      "empty", 
+      "empty", 
+      "king", 
+      "empty", 
+      "rook", 
+      "queen", 
+      "empty"
+      ],
   };
 
   var key1 = "row7";
@@ -327,7 +362,16 @@ describe("chessSabotage", function () {
       "queen",
       "empty",
     ],
-    row2: ["empty", "pawn", "pawn", "empty", "empty", "pawn", "bishop", "pawn"],
+    row2: [
+      "empty", 
+      "pawn", 
+      "pawn", 
+      "empty", 
+      "empty", 
+      "pawn", 
+      "bishop", 
+      "pawn"
+      ],
     row3: [
       "knight",
       "empty",
@@ -338,7 +382,16 @@ describe("chessSabotage", function () {
       "bishop",
       "empty",
     ],
-    row4: ["pawn", "empty", "pawn", "pawn", "empty", "", "empty", "bishop"],
+    row4: [
+      "pawn", 
+      "empty", 
+      "pawn", 
+      "pawn", 
+      "empty", 
+      "empy", 
+      "empty", 
+      "bishop"
+    ],
     row5: [
       "empty",
       "empty",
@@ -359,8 +412,26 @@ describe("chessSabotage", function () {
       "knight",
       "empty",
     ],
-    row7: ["pawn", "pawn", "empty", "empty", "bishop", "pawn", "pawn", "pawn"],
-    row8: ["rook", "empty", "empty", "king", "empty", "rook", "queen", "empty"],
+    row7: [
+      "pawn", 
+      "pawn", 
+      "empty", 
+      "empty", 
+      "bishop", 
+      "pawn", 
+      "pawn", 
+      "pawn"
+    ],
+    row8: [
+      "rook", 
+      "empty", 
+      "empty", 
+      "king", 
+      "empty", 
+      "rook", 
+      "queen", 
+      "empty"
+      ],
   };
 
   it("should return the input object", function () {
@@ -368,7 +439,7 @@ describe("chessSabotage", function () {
     expect(chessSabotage(obj, "row1")).to.eq(obj);
   })
 
-  it("should update the specified array's \'pawn\'s\' changed to \'queen\' ", function () {
+  it("should update the specified row's \'pawn\'s\' to \'queen\' ", function () {
     const obj = { ...chessRows };
     expect(chessSabotage({ ...obj }, "row3").row3).to.eql([
       "knight",
@@ -423,8 +494,11 @@ If the word is not in the info object, put a zero in its place in the new array.
 
 Each key in the given object will have a number as a value.  
 
-Note:  
-The relationship between `words` and `info` is important. Do not use a `for...in` loop to iterate over `info`. To help facilitate problem solving without looping over the given object, use of the keyword `in` will throw an error.
+Notes:  
+- The relationship between `words` and `info` is important. 
+- Do not use a `for...in` loop to iterate over `info`. 
+- -To help facilitate problem solving without looping over the given object, use of the protected term `in` will throw an error.
+- Each key in the given object will have a number as a value. 
 ```js
   var words1 = [
     "cold",
@@ -487,6 +561,10 @@ describe("pageNumbers", function () {
     cold: 400,
   };
 
+ it("should not use a for...in loop", function () {
+   const funcStr = pageNumbers.toString();
+   expect(funcStr).to.not.include(" in ");
+ });
 
   it("should return an array", function () {
     
@@ -544,7 +622,9 @@ describe("pageNumbers", function () {
 
 
 Note:  
-The relationship between `items` and `bins` is important. Do not use a `for...in` loop to iterate over `bins`. To help facilitate problem solving without looping over the given object, use of the keyword `in` will throw an error.
+- The relationship between `items` and `bins` is important. 
+- Do not use a `for...in` loop to iterate over `bins`. 
+- To help facilitate problem solving without looping over the given object, use of the protected term `in` will throw an error.
 ```js
   var unsortedItems = [
     { item: "desk", type: "homegoods" },
@@ -580,7 +660,7 @@ The relationship between `items` and `bins` is important. Do not use a `for...in
 #### !placeholder
 
 ```js
-function pageNumbers(words, info) {
+function warehouseBins(items, bins) {
 
 }
 ```
@@ -647,7 +727,7 @@ describe("warehouseBins", function () {
 
  it("should not use a for...in loop", function () {
    const funcStr = warehouseBins.toString();
-   expect(funcStr).to.not.include("in");
+   expect(funcStr).to.not.include(" in ");
  });
 
   it("should not use Object.keys, Object.values, or Objects.entries", function () {
@@ -706,7 +786,7 @@ describe("warehouseBins", function () {
 
 ### !question 
 
-Given an array of arrays, return true if the 8 ball is in the correct starting place. If not, return false.
+Given an array of arrays `arr`, return `true` if the 8 ball is in the correct starting place. If not, return `false`.
 
 *In billiards, the 8 ball should be placed in the middle of the third row.* 
 ```js
@@ -717,7 +797,7 @@ Given an array of arrays, return true if the 8 ball is in the correct starting p
     [4,9,10],
     [6,3,15,14],
     [13,11,12,5,7,8]
-  ]; //=> false
+  ]; 
 
   var billiardsSetup2 = [
     [1],
@@ -725,7 +805,7 @@ Given an array of arrays, return true if the 8 ball is in the correct starting p
     [4,8,10],
     [6,3,15,14],
     [13,11,12,5,7,15]
-  ]; //=> true
+  ]; 
  
   console.log(organizeBilliards(billiardsSetup1)); //=> false
   console.log(organizeBilliards(billiardsSetup2)); //=> true 
@@ -802,7 +882,7 @@ describe('organizeBilliards', function () {
 
 A dog is being trained to fetch the paper. When the dog takes the right action, the dog receives a treat. Otherwise, the dog receives nothing.  
 
-Given an array of days the dog attempted to fetch the paper, return how many times the dog received a treat. You know the dog performed the correct action when the description says 'brought the paper.' 
+Given an array of days the dog attempted to fetch the paper `actions`, return how many times the dog received a treat. You know the dog performed the correct action when the description says 'brought the paper.' 
 
 ```js
 var attempts = [
@@ -903,11 +983,11 @@ describe("receivedTreats", function () {
 
 There are killer robots on the loose! And they look like all the other robots. There is only one way to tell the robots apart: by what they say.  
   
-All robots speak in 'beep' and 'boop'. A killer robot will always speak in a string that contains 'beeps' and 'boops' with a length that is a multiple of 4, while a non-killer robot will never speak in'beeps' and 'boops' in a string that is a multiple of four.  
+All robots speak in 'beep' and 'boop'. A killer robot will always speak in a string that contains 'beeps' and 'boops' with a length that is a multiple of 4, while a non-killer robot will never speak in 'beeps' and 'boops' in a string that is a multiple of four.  
   
-Given a an array of robots and their strings, find the killer robots!  
+Given a an array of robots and their strings `speech`, find the killer robots!  
   
-Return a array of true and false. True marks a killer robot and false marks a normal robot.
+Return an array of `true` and `false` values. `true` marks a killer robot and `false` marks a normal robot.
 
 ```js
 var robotTalk = [
@@ -928,7 +1008,7 @@ console.log(killerRobots(robotTalk)); //=> [false, true, false, true, false, fal
 #### !placeholder
 
 ```js
-function killerRobots(strings) {
+function killerRobots(speech) {
 
 }
 ```
@@ -1015,14 +1095,14 @@ describe("killerRobots", function () {
 
 Sally lives in a very rainy area. She's trying to find the day most likely to be sunny. She looks at two sources of information to find a day likely to be sunny.
   
-Weather prediction takes in an object containing two sources of weather info. If both sources contain Weather info predicting the same day to be 'sunny', return the day. If no days match, return 'replan'
+Weather prediction takes in an object containing two sources of weather info `sources`. If both sources contain weather info predicting the same day to be 'sunny', return the day. If no days match, return 'replan'
 
-Hints:  
-- at most, one sunny day will match 
-- it is possible no days will match  
-- both sources will always have the same length  
-- sources will always have the same days  
-- the given object will always have properties 'source1' and 'source2'
+Notes:  
+- At most, one sunny day will match 
+- It is possible no days will match  
+- Both sources will always have the same length  
+- Sources will always have the same days  
+- The given object will always have properties 'source1' and 'source2'
 
 ```js
 const sources = {
@@ -1237,7 +1317,7 @@ describe("weatherPredictions", function () {
 
 ### !question  
 
-Given a distance in miles and an array of people's names and how far they are willing to walk, return true if all people are willing to walk that distance, and false if anyone is not willing to walk that distance.
+Given a distance in miles `distance` and an array of people's names and how far they are willing to walk `people`, return `true` if all people are willing to walk that distance, and `false` if anyone is not willing to walk that distance.
 
 ```js
 var peopleA = [
@@ -1268,7 +1348,7 @@ console.log(shouldWeWalk(peopleA, 3)); //=> false
 #### !placeholder
 
 ```js
-function shouldWeWalk(people) {
+function shouldWeWalk(people, distance) {
 
 }
 ```
