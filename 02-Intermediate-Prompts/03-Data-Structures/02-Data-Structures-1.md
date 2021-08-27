@@ -1,3 +1,5 @@
+# Various 
+
 ### !challenge
 
 * type: code-snippet
@@ -5,14 +7,16 @@
 * language: javascript
 * title: Chubby Bunny
 
-### ! 
+### !question 
 
-A group of kids of mixed ages are playing the game 'chubby bunny. Based on how many marshmallows a child can put in their mouths, return how  impressed the other children will be
+A group of kids are playing the game "Chubby Bunny." Based on how many marshmallows a child can put in their mouths, return how  impressed the other children will be
 
   The function has three inputs.
-  1) An object containing kids' names (players) as keys and how many marshmallows they can put in their mouths.
-  2) An object containing responses based on how many marshmallows the child put in their mouths
-  3) The target child's name
+  1) An object containing kids' names `players` as keys and how many marshmallows they can put in their mouths.
+  2) An object containing responses `responses` based on how many marshmallows the child put in their mouths
+  3) A string of the target child's name `name`
+######
+*You do not need to iterate to solve this problem*
 
 ```js
 var players1 = {
@@ -42,7 +46,7 @@ var players1 = {
 #### !placeholder
 
 ```js
-function chubbyBunny(children, responses, name) {
+function chubbyBunny(players, responses, name) {
 
 }
 ```
@@ -122,19 +126,19 @@ describe('chubbyBunny', function () {
 * language: javascript
 * title: Word Clouds
 
-### ! 
+### !question 
 
-Given a list of 10 words and a target word, based on how many times the given word appears, return if the word will be 'huge', 'large', 'medium', or 'small.'
-  huge: appears 4 times
-  large: appears 3 times
-  medium: appears 2 times
-  small: appears 1 time
+Given a list of 10 words `words` and a target word `target`, based on how many times the given word appears, return if the word will be 'huge', 'large', 'medium', or 'small.'
+  * Huge: appears 4 times
+  * Large: appears 3 times
+  * Medium: appears 2 times
+  * Small: appears 1 time
 
 Notes: 
   - The list will always contain four unique strings
   - The list will always have a length of 10
 
-Info: "Word clouds (also known as text clouds or tag clouds) work in a simple way: the more a specific word appears in a source of textual data (such as a speech, blog post, or database), the bigger and bolder it appears in the word cloud." link: https://boostlabs.com/blog/what-are-word-clouds-value-simple-visualizations/
+Info: "Word clouds (also known as text clouds or tag clouds) work in a simple way: the more a specific word appears in a source of textual data (such as a speech, blog post, or database), the bigger and bolder it appears in the word cloud." Read more [here](https://boostlabs.com/blog/what-are-word-clouds-value-simple-visualizations/)
 ```js
 const words1 = [
     "donuts",
@@ -226,10 +230,10 @@ describe("wordClouds", function () {
 * language: javascript
 * title: Chess Sabotage
 
-### ! 
+### !question 
 
-Given an object of arrays and a key, replace all the 'pawn' pieces at the key with 'queen'
-Return the updated object (do not make a copy)
+Given an object of arrays `board` and a key `row`, replace all the 'pawn' pieces at the key with 'queen'
+Return the input object updated (do not make a copy)
 ```js
   var chessBoard = {
     row1: [
@@ -280,7 +284,7 @@ Return the updated object (do not make a copy)
 
   var key1 = "row7";
 
-  console.log(chessSabotage( chessBoard, key1); //=>
+  console.log(chessSabotage(chessBoard, key1); //=>
   /*should return the entire given object with "row7" changed to 
    [
      "queen",
@@ -412,7 +416,7 @@ describe("chessSabotage", function () {
 * language: javascript
 * title: Page Numbers
 
-### ! 
+### !question 
 
 Given an array of strings `words` and object containing book information `info`, return a new array of the page numbers where the words are found. The page numbers in the new array should match the order of the words in the given words array.  
 If the word is not in the info object, put a zero in its place in the new array.  
@@ -534,7 +538,7 @@ describe("pageNumbers", function () {
 * language: javascript
 * title: Warehouse Bins
 
-### ! 
+### !question 
 
   Given an object of empty bins `bins` and an array of items with their type `items`, move the item name to the correct bin based on the type. You can assume the type of item will always have a corresponding bin.  
 
@@ -700,7 +704,7 @@ describe("warehouseBins", function () {
 * language: javascript
 * title: Organize Billiards
 
-### ! 
+### !question 
 
 Given an array of arrays, return true if the 8 ball is in the correct starting place. If not, return false.
 
@@ -794,7 +798,7 @@ describe('organizeBilliards', function () {
 * language: javascript
 * title: Received Treats
 
-### ! 
+### !question  
 
 A dog is being trained to fetch the paper. When the dog takes the right action, the dog receives a treat. Otherwise, the dog receives nothing.  
 
@@ -895,7 +899,7 @@ describe("receivedTreats", function () {
 * language: javascript
 * title: Killer Robots
 
-### ! 
+### !question 
 
 There are killer robots on the loose! And they look like all the other robots. There is only one way to tell the robots apart: by what they say.  
   
@@ -1007,7 +1011,7 @@ describe("killerRobots", function () {
 * language: javascript
 * title: Weather Predictions
 
-### ! 
+### !question 
 
 Sally lives in a very rainy area. She's trying to find the day most likely to be sunny. She looks at two sources of information to find a day likely to be sunny.
   
@@ -1064,65 +1068,354 @@ function weatherPredictions(sources) {
 ### !tests
 
 ```js
-describe("killerRobots", function () {
-  var robotTalk = [
-    { str: "boop beep boop" },
-    { str: "boop boop beep beep boop boop beep beep" },
-    { str: "beep beep beep beep boop boop boop" },
-    { str: "boop boop boop boop beep beep beep beep boop boop boop boop" },
-    { str: "boop beep boop beep boop" },
+describe("weatherPredictions", function () {
+
+  const sourcesA = {
+    source1: [
+        {
+          day: "Monday",
+          weather: 'rainy'  
+      },
+      {
+        day: 'Tuesday',
+        weather: "sunny"
+      },
+    ],
+    source2: [
+        {
+          day: "Monday",
+          weather: 'sunny'  
+      },
+      {
+        day: 'Tuesday',
+        weather: "sunny"
+      },
+    ],
+  }
+  const sourcesB = {
+    source1: [
+        {
+          day: "Monday",
+          weather: 'rainy'  
+      },
+      {
+        day: 'Tuesday',
+        weather: "sunny"
+      },
+    ],
+    source2: [
+        {
+          day: "Monday",
+          weather: 'sunny'  
+      },
+      {
+        day: 'Tuesday',
+        weather: "rainy"
+      },
+    ],
+  }
+  const sourcesC = {
+    source1: [
+      {
+        day: "Monday",
+        weather: 'rainy'
+      },
+      {
+        day: 'Tuesday',
+        weather: "rainy"
+      },
+      {
+        day: "Wednesday",
+        weather: 'rainy'
+      }
+    ],
+    source2: [
+      {
+        day: "Monday",
+        weather: 'rainy'
+      },
+      {
+        day: 'Tuesday',
+        weather: "rainy"
+      },
+      {
+        day: 'Wednesday',
+        weather: 'rainy'
+      }
+    ],
+  };
+
+   const sourcesD = {
+     source1: [
+       {
+         day: "Monday",
+         weather: "rainy",
+       },
+       {
+         day: "Tuesday",
+         weather: "rainy",
+       },
+       {
+         day: "Saturday",
+         weather: "sunny",
+       },
+     ],
+     source2: [
+       {
+         day: "Monday",
+         weather: "rainy",
+       },
+       {
+         day: "Tuesday",
+         weather: "rainy",
+       },
+       {
+         day: "Saturday",
+         weather: "sunny",
+       },
+     ],
+   };
+  
+   const sourcesE = {
+     source1: [
+       {
+         day: "Monday",
+         weather: "rainy",
+       },
+       {
+         day: "Tuesday",
+         weather: "rainy",
+       },
+       {
+         day: "Saturday",
+         weather: "sunny",
+       },
+     ],
+     source2: [
+       {
+         day: "Monday",
+         weather: "rainy",
+       },
+       {
+         day: "Tuesday",
+         weather: "rainy",
+       },
+       {
+         day: "Saturday",
+         weather: "sunny",
+       },
+     ],
+   };
+
+
+  it("should return a string", function () {
+    expect(weatherPredictions(sourcesA)).to.be.a('string');
+  })
+
+  it("should return \"reschedule\" if sunny days do not match or there are no sunny days", function () {
+    expect(weatherPredictions(sourcesB)).to.deep.eq('reschedule');
+    expect(weatherPredictions(sourcesC)).to.deep.eq('reschedule');
+  })
+
+  it("should return the correct day if sunny weather days match", function () {
+    expect(weatherPredictions(sourcesA)).to.deep.eq('Tuesday');
+    expect(weatherPredictions(sourcesD)).to.deep.eq('Saturday');
+  })
+})
+
+```
+### !end-tests
+
+### !end-challenge
+
+### !challenge
+
+* type: code-snippet
+* id: dataStructures-1-10
+* language: javascript
+* title: Should We Walk
+
+### !question  
+
+Given a distance in miles and an array of people's names and how far they are willing to walk, return true if all people are willing to walk that distance, and false if anyone is not willing to walk that distance.
+
+```js
+var peopleA = [
     {
-      str: "boop beep boop beep boop boop beep boop beep boop boop beep boop beep boop boop beep boop beep boop beep",
+      name: 'Tom',
+      'walking distance': 4,
     },
+    {
+      name: 'Shelly',
+      'walking distnace': 3
+    },
+    {
+      name: 'Wandile',
+      'walking distance': 5,
+    },
+    {
+      name: 'Geoffrey',
+      'walking distance': 2
+    }
   ];
 
-    var robotTalkA = [
-      { str: "boop boop beep beep boop boop beep beep" },
-      { str: "boop beep boop" },
-    ];
-  
-   var robotTalkB = [
-     { str: "boop beep" },
-     { str: "boop beep boop" },
+
+console.log(shouldWeWalk(peopleA, 3)); //=> false
+``` 
+
+### !end-question
+
+#### !placeholder
+
+```js
+function shouldWeWalk(people) {
+
+}
+```
+
+#### !end-placeholder
+
+
+### !tests
+
+```js
+describe("shouldWeWalk", function () {
+   const people = [
+     {
+       name: "Tom",
+       "walking distance": 4,
+     },
+     {
+       name: "Shelly",
+       "walking distance": 3,
+     },
+     {
+       name: "Wandile",
+       "walking distance": 5,
+     },
+     {
+       name: "Geoffrey",
+       "walking distance": 2,
+     },
    ];
 
-  
-   var robotTalkC = [{ str: "boop boop beep boop" }, { str: "boop beep boop beep beep beep beep beep" }];
+   const people2 = [
+     {
+       name: "Sam",
+       "walking distance": 10,
+     },
+   
+   ];
+
+  it("should return a boolean", function () {
+    expect(shouldWeWalk(people, 3)).to.be.a('boolean');
+  })
+
+  it("should return the expected boolean", function () {
+    expect(shouldWeWalk(people, 3)).to.deep.eq(false);
+    expect(shouldWeWalk(people, 1)).to.deep.eq(true);
+    expect(shouldWeWalk(people2, 10)).to.deep.eq(true);
+  })
+})
+
+```
+### !end-tests
+
+### !end-challenge
+
+### !challenge
+
+* type: code-snippet
+* id: dataStructures-1-11
+* language: javascript
+* title: Who Will Walk
+
+### !question 
+
+Similar to the above, return an array of people who who will walk the given distance.
+
+```js
+var peopleA = [
+    {
+      name: 'Tom',
+      'walking distance': 4,
+    },
+    {
+      name: 'Shelly',
+      'walking distnace': 3
+    },
+    {
+      name: 'Wandile',
+      'walking distance': 5,
+    },
+    {
+      name: 'Geoffrey',
+      'walking distance': 2
+    }
+  ];
 
 
+console.log(whoWillWalk(peopleA, 3)); //=> ["Tom", "Shelly", "Wandile"]
+``` 
+
+### !end-question
+
+#### !placeholder
+
+```js
+function whoWillWalk(people, distance) {
+
+}
+```
+
+#### !end-placeholder
+
+
+### !tests
+
+```js
+describe("whoWillWalk", function () {
+   const people = [
+     {
+       name: "Tom",
+       "walking distance": 4,
+     },
+     {
+       name: "Shelly",
+       "walking distance": 3,
+     },
+     {
+       name: "Wandile",
+       "walking distance": 5,
+     },
+     {
+       name: "Geoffrey",
+       "walking distance": 2,
+     },
+   ];
+
+   const people2 = [
+     {
+       name: "Sam",
+       "walking distance": 10,
+     },
+   
+   ];
 
   it("should return an array", function () {
-    expect(killerRobots([...robotTalk])).to.be.an("array");
-  });
+    expect(whoWillWalk(people, 3)).to.be.an('array');
+  })
 
-  it("should not use Object.keys, Object.values, or Objects.entries", function () {
-    const funcStr = killerRobots.toString();
-    expect(funcStr).to.not.include("Object.keys");
-    expect(funcStr).to.not.include("Object.values");
-    expect(funcStr).to.not.include("Object.entries");
-  });
+  it("should return an array of the correct names", function () {
+    expect(whoWillWalk(people, 3)).to.eql(['Tom', 'Shelly', 'Wandile']);
+    expect(whoWillWalk(people, 1)).to.eql(['Tom', 'Shelly', 'Wandile', 'Geoffrey']);
+    expect(whoWillWalk(people2, 10)).to.deep.eq(['Sam']);
+  })
 
-  it("should return the correct array based on the example input", function () {
-    expect(killerRobots([...robotTalk])).to.eql([
-      false,
-      true,
-      false,
-      true,
-      false,
-      false,
-    ]);
-  });
-
-  it("should return the expected array", function () {
-    expect(
-      killerRobots([...robotTalkA])
-    ).to.eql([true, false]);
-
-    expect(killerRobots([...robotTalkA])).to.eql([true, false]);
-    expect(killerRobots([...robotTalkB])).to.eql([false, false]);
-    expect(killerRobots([...robotTalkC])).to.eql([true, true]);   
-  });
-});
+  it("should return an empty array if no one will walk", function () {
+    expect(whoWillWalk(people2, 11)).to.deep.eq([]);
+  })
+})
 
 ```
 ### !end-tests

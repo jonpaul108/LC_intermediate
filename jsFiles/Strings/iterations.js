@@ -3,8 +3,8 @@
 
 //-------------------------
 
-//1)backwards word
-//iterate backwards and return the word facing the right way
+//1)backwards 
+//Iterate backwards and return the word facing the right way
 
 //** You do not need to split to solve this. try to solve this by iterating backwards
 

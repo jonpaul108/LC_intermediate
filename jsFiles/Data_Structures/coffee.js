@@ -61,7 +61,7 @@ var coffeeRegions = [
 
 function totalSpent(arr) {
 
-  }
+}
   
 
 

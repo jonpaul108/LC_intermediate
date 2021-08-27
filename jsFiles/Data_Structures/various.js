@@ -166,8 +166,6 @@ function receivedTreats(actions) {
   return actions.reduce((acc, curr) => {
     return acc + (curr.action === "brought the paper" ? 1 : 0);
   }, 0)
-  
-
 }
 
 // console.log(receivedTreats(attempts)); //==> 3

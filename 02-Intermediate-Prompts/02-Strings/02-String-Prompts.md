@@ -1,3 +1,5 @@
+# Various
+
 ### !challenge
 
 * type: code-snippet
@@ -5,13 +7,12 @@
 * language: javascript
 * title: Replace First Letter
 
-### ! 
+### !question
 
-Given a word and a character, combine the word an character so the first letter of the word is now the character. Return the new word.
+Given a word `word` and a character `char`, combine the word and given character so the first letter of the word is now the character. Return the new word.
 
 ```js
-  var actual = replaceFirstLetter("word", "f");
-  var expected = 'ford';
+  console.log(eplaceFirstLetter("word", "f")) // => 'ford'
 ``` 
 
 ### !end-question
@@ -40,12 +41,7 @@ describe('replaceFirstLetter', function () {
     expect(replaceFirstLetter('word', 'f')).to.be.a('string');
   })
 
-  it('should not iterate', function () {
-     const funcStr = replaceFirstLetter.toString();
-    expect(funcStr).to.not.include('for');
-  })
-
-  it('should return a the word with the first letter replaced', function () {
+  it('should return the word with the first letter replaced', function () {
     expect(replaceFirstLetter('word', 'f')).to.deep.eq('ford');
     expect(replaceFirstLetter('near', 't')).to.deep.eq('tear');
     expect(replaceFirstLetter('wee shrimp', 's')).to.deep.eq('see shrimp');
@@ -63,13 +59,12 @@ describe('replaceFirstLetter', function () {
 * language: javascript
 * title: First Last Uppercase
 
-### ! 
+### !question 
 
-Given a string of all lower case characters, return the word with its first and last characters change to uppercase. 
+Given a string `str` of all lower case characters, return the word with its first and last characters changed to uppercase. 
 
 ```js
-  var actual = firstLastUppercase('world');
-  var expected = 'WorlD';
+  console.log(firstLastUppercase('world')) // ==> 'WorlD';
 ``` 
 
 ### !end-question
@@ -98,11 +93,6 @@ describe('firstLastUppercase', function () {
      expect(firstLastUppercase("word")).to.be.a("string");
    });
 
-   it("should not iterate", function () {
-     const funcStr = firstLastUppercase.toString();
-     expect(funcStr).to.not.include("for");
-   });
-
    it("should return a the word with the first and last characters uppercased", function () {
      expect(firstLastUppercase("word")).to.deep.eq("WorD");
      expect(firstLastUppercase("near")).to.deep.eq("NeaR");
@@ -121,13 +111,12 @@ describe('firstLastUppercase', function () {
 * language: javascript
 * title: Uppercase From Index
 
-### ! 
+### !question 
 
-Given a string and an index, return the given string with all the characters from the given index uppercased. 
+Given a string `str` and an index `ind`, return the given string with all the characters starting from the given index changed to uppercase. The given index will always be greater than or equal to zero.
 
 ```js
-  var actual = uppercaseFromIndex('world', 1);
-  var expected = 'wORD';
+  console.log(uppercaseFromIndex('world', 1)) //=> 'wORD'
 ``` 
 
 ### !end-question
@@ -135,7 +124,7 @@ Given a string and an index, return the given string with all the characters fro
 #### !placeholder
 
 ```js
-function firstLastUppercase(str, ind) {
+function uppercaseFromIndex(str, ind) {
 
 }
 ```
@@ -160,6 +149,7 @@ describe('uppercaseFromIndex', function () {
    expect(uppercaseFromIndex("word", 1)).to.deep.eq("wORD");
    expect(uppercaseFromIndex("near", 3)).to.deep.eq("neaR");
    expect(uppercaseFromIndex("wee shrimp", 4)).to.deep.eq("wee SHRIMP");
+   expect(uppercaseFromIndex("hello", 0)).to.deep.eq('HELLO');
   });
 })
 ```
@@ -174,11 +164,11 @@ describe('uppercaseFromIndex', function () {
 * language: javascript
 * title: Backwards
 
-### ! 
+### !question
 
-Iterate from the end of the given word to the first index to create a reversed string. Return the reversed string. 
+Iterate from the end of the given word `str` to the first index to create a reversed string. Return the reversed string. 
 
-**Do not use String.split method.**
+**Do not use String.split or Array.reverse methods.**
 
 ```js
   console.log(backwards('lla')); // => 'all'
@@ -207,6 +197,11 @@ describe("backwards", function () {
     expect(funcStr).to.not.include('.split');
   })
 
+  it("should not use Array.reverse method", function () {
+    const funcStr = backwards.toString();
+    expect(funcStr).to.not.include('.reverse');
+  })
+
   it("should return a string", function () {
     expect(backwards('lol')).to.be.a("string");
   });
@@ -228,11 +223,11 @@ describe("backwards", function () {
 * type: code-snippet
 * id: strings-05
 * language: javascript
-* title: Every OtherChar
+* title: Every Other Char
 
-### ! 
+### !question 
 
-Given a string, build a new string by iterating over every other character from index 0. Return the new string.
+Given a string `str`, build a new string by iterating over every other character from index 0. Return the new string.
 
 **Do not use String.split method.**
 
@@ -286,9 +281,9 @@ describe("everyOtherChar", function () {
 * language: javascript
 * title: Every Third Char
 
-### ! 
+### !question 
 
-Given a string, build a new string by iterating over every other character from index 0. Return the new string.
+Given a string `str`, return a new string by iterating from the end of the string by three to find the word mixed into the characters
 
 **Do not use String.split method.**
 
@@ -302,7 +297,7 @@ Given a string, build a new string by iterating over every other character from 
 #### !placeholder
 
 ```js
-function signedIn(people, name) {
+function everyThirdChar(str) {
 
 }
 ```
@@ -341,9 +336,15 @@ describe("everyThirdChar", function () {
 * language: javascript
 * title: Signed In
 
-### ! 
+### !question 
 
-Given a string, build a new string by iterating over every other character from index 0. Return the new string.
+Given an objects of objects `people` containing a information about peoples signed in status and a string `name`, return a message describing
+  * if the person is signed out or signed in and
+  * when they last signed in.   
+    
+The message should take the form:
+`[name] is currently signed [in/out]. They last signed in on [date].`
+
 
 **Do not use String.split method.**
 
@@ -406,12 +407,13 @@ describe('signedIn', function () {
       lastSignIn: '09/05/2015'
     }
   }
+
   it("should not use String.split method", function () {
     const funcStr = signedIn.toString();
     expect(funcStr).to.not.include(".split");
   });
 
-    it("should not loop", function () {
+  it("should not loop", function () {
     const funcStr = signedIn.toString();
     expect(funcStr).to.not.include('for');
   })
@@ -446,138 +448,23 @@ describe('signedIn', function () {
       }
     }, 'Tom')).to.include("signed out");
   })
+})
 ```
 ### !end-tests
 
 ### !end-challenge
 
-### !challenge
-
-* type: code-snippet
-* id: strings-07
-* language: javascript
-* title: Signed In
-
-### ! 
-
-Given a string, build a new string by iterating over every other character from index 0. Return the new string.
-
-**Do not use String.split method.**
-
-```js
-var people = {
-    Al: {
-      signedIn: false,
-      lastSignIn: '07/01/2021'
-    },
-    Jesse: {
-      signedIn: true,
-      lastSignIn: '07/10/2021'
-    },
-    Wilma: {
-      signedIn: true,
-      lastSignIn: '07/30/2021'
-    },
-    Fred: {
-      signedIn: false,
-      lastSignIn: '09/05/2015'
-    }
-  }
-
-  console.log(signedIn(people, "Jesse"); //=> "Jesse is currently signed in. They last signed in on 07/10/2021."
-``` 
-
-### !end-question
-
-#### !placeholder
-
-```js
-function signedIn(people, name) {
-
-}
-```
-
-#### !end-placeholder
-
-
-### !tests
-
-```js
-describe('signedIn', function () {
-
-  const people = {
-    Al: {
-      signedIn: false,
-      lastSignIn: '07/01/2021'
-    },
-    Jesse: {
-      signedIn: true,
-      lastSignIn: '07/10/2021'
-    },
-    Wilma: {
-      signedIn: true,
-      lastSignIn: '07/30/2021'
-    },
-    Fred: {
-      signedIn: false,
-      lastSignIn: '09/05/2015'
-    }
-  }
-  it("should not use String.split method", function () {
-    const funcStr = signedIn.toString();
-    expect(funcStr).to.not.include(".split");
-  });
-
-    it("should not loop", function () {
-    const funcStr = signedIn.toString();
-    expect(funcStr).to.not.include('for');
-  })
-
-  it("should return a string", function () {
-    expect(signedIn({
-      Tom: {
-        signedIn: false,
-        lastSignIn: '07/01/2021'
-      }
-    }, 'Tom')).to.be.a("string");
-  });
-
-  it("should return a string containing the given name", function () {
-    expect(signedIn(people, 'Wilma')).to.include("Wilma");
-    expect(signedIn(people, 'Jesse')).to.include("Jesse");
-      expect(signedIn({
-      Tom: {
-        signedIn: false,
-        lastSignIn: '07/01/2021'
-      }
-    }, 'Tom')).to.include("Tom");
-  })
-
-  it("should return a string containing the correct logged in status", function () {
-    expect(signedIn(people, 'Wilma')).to.include("signed in");
-    expect(signedIn(people, 'Fred')).to.include("signed out");
-      expect(signedIn({
-      Tom: {
-        signedIn: false,
-        lastSignIn: '07/01/2021'
-      }
-    }, 'Tom')).to.include("signed out");
-  })
-```
-### !end-tests
-
-### !end-challenge
 
 ### !challenge
 
 * type: code-snippet
 * id: strings-08
 * language: javascript
-* title: Has Vacation Remaining
+* title: Vacation Remaining
 
-### ! 
+### !question 
 
-Given an array of objects containing names and vacation remaining status, return an array of all the names. Mark the people who have vacation remaining by surrounding their names in asterisks ('*').
+Given an array of objects `people` containing names and vacation remaining status, return an array of all the names. Mark the people who have vacation remaining by surrounding their names in asterisks ('*').
 
 **Do not use String.split method.**
 
@@ -605,7 +492,7 @@ var people = [
     },
   ];
 
-  console.log(hasVacationRemaining(people); //=>  ['Kim', '*Lee*', '*Sarah*', '*Ted*', 'Martha']
+  console.log(vacationRemaining(people); //=>  ['Kim', '*Lee*', '*Sarah*', '*Ted*', 'Martha']
 ``` 
 
 ### !end-question
@@ -613,7 +500,7 @@ var people = [
 #### !placeholder
 
 ```js
-function hasVacationRemaining(people) {
+function vacationRemaining(people) {
 
 }
 ```
@@ -624,7 +511,7 @@ function hasVacationRemaining(people) {
 ### !tests
 
 ```js
-describe("hasVacationRemaining", function () {
+describe("vacationRemaining", function () {
 
   const people = [
     {
@@ -660,25 +547,25 @@ describe("hasVacationRemaining", function () {
     }
   ]
   it("should not use the split method", function () {
-    const funcStr = hasVacationRemaining.toString();
+    const funcStr = vacationRemaining.toString();
     expect(funcStr).to.not.include('.split');
   })
   
   it("should return an array", function () {
-    expect(hasVacationRemaining(people)).to.be.an('array');
+    expect(vacationRemaining(people)).to.be.an('array');
   })
 
   it("should return an array of the same length as the input array", function () {
-    expect(hasVacationRemaining(people)).to.be.an('array').have.lengthOf(5);
-    expect(hasVacationRemaining([{name: 'Apple', vacationRemaining: true}])).to.be.an('array').have.lengthOf(1);
+    expect(vacationRemaining(people)).to.be.an('array').have.lengthOf(5);
+    expect(vacationRemaining([{name: 'Apple', vacationRemaining: true}])).to.be.an('array').have.lengthOf(1);
   })
 
   it("should return an array containing the expectd elements", function () {
     const answer1 = ['Kim', '*Lee*', '*Sarah*', '*Ted*', 'Martha'];
-    expect(hasVacationRemaining(people)).to.eql(answer1);
+    expect(vacationRemaining(people)).to.eql(answer1);
     })
-    expect(hasVacationRemaining(people2)).to.eql(['James', 'Melvin']);
-    expect(hasVacationRemaining([{name: 'Apple', vacationRemaining: true}])).to.eql(['*Apple*'])
+    expect(vacationRemaining(people2)).to.eql(['James', 'Melvin']);
+    expect(vacationRemaining([{name: 'Apple', vacationRemaining: true}])).to.eql(['*Apple*'])
 })
 
 
@@ -687,5 +574,57 @@ describe("hasVacationRemaining", function () {
 ### !end-tests
 
 ### !end-challenge
+
+### !challenge
+
+* type: code-snippet
+* id: strings-09
+* language: javascript
+* title: Odd Or Even Nums
+
+### !question  
+
+Given an array of numbers `nums`, return a new array of strings where each number is concatenated with whether it is odd or even, a colon, a space and the number.
+
+```js
+  console.log(oddOrEvenNums([3, 10, 9, 12]); //=> ['odd: 3', 'even: 10', 'odd: 9', 'even: 12']
+``` 
+
+### !end-question
+
+#### !placeholder
+
+```js
+function oddOrEvenNums(nums) {
+
+}
+```
+
+#### !end-placeholder
+
+
+### !tests
+
+```js
+describe("oddOrEvenNums", function () {
+
+  it("should return an array with the same length as the input array", function () {
+    expect(oddOrEvenNums([3, 7, 9])).to.have.lengthOf(3);
+    expect(oddOrEvenNums([3, 10, 9, 12])).to.have.lengthOf(4);
+  })
+
+  it("should return an array containing the expected strings", function () {
+    expect(oddOrEvenNums([3, 7, 9])).to.eql(['odd: 3', 'odd: 7', 'odd: 9']);
+    expect(oddOrEvenNums([3, 10, 9, 12])).to.eql(['odd: 3', 'even: 10', 'odd: 9', 'even: 12']);
+    expect(oddOrEvenNums([100, 101, 90, 1002])).to.eql(['even: 100', 'odd: 101', 'even: 90', 'even: 1002']);
+  })
+})
+
+
+```
+### !end-tests
+
+### !end-challenge
+
 
 

@@ -310,8 +310,6 @@ describe("warehouseBins", function () {
     { item: "bed frame", type: "homegoods" },
   ];
 
-
-
   const unsortedItems2 = [
       { item: "banana", type: "fruit" },
       { item: "toothbrush", type: "dental" },

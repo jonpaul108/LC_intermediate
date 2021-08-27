@@ -117,7 +117,6 @@ describe('signedIn', function () {
 
 
   it("should return the expected message", function () {
-
     expect(signedIn(people, 'Fred')).to.deep.eq("Fred is currently signed out. They last signed in on 09/05/2015.");
     expect(signedIn(people, "Jesse")).to.deep.eq(
       "Jesse is currently signed in. They last signed in on 07/10/2021."
