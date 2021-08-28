@@ -72,14 +72,14 @@ var allStars = [
 * type: code-snippet
 * id: dataStructures-2-1
 * language: javascript
-* title: High Scoring Players
+* title: High Scoring Players A
 
 ### !question 
 
-Your scouting manager only wants you to pay attention to players who score at least 20 points per game. Create a function that returns an array of player names who fit this description.
+Given an array of player info `players`, your scouting manager only wants you to pay attention to players who score at least 20 points per game. Create a function that returns an array of player names who fit this description.
 
 ```js
-console.log(highScoringPlayers(allStars)); //=> 
+console.log(highScoringPlayersA(allStars)); //=> 
 /*
   [
     "Dwyane Wade",
@@ -99,7 +99,7 @@ console.log(highScoringPlayers(allStars)); //=>
 #### !placeholder
 
 ```js
-function highScoringPlayers(players) {
+function highScoringPlayersA(players) {
 
 }
 ```
@@ -258,11 +258,12 @@ describe("highScoringPlayersA", function () {
 
 ### !question  
 
-Right now your function looks for only players with 20 points per game. Modify your function such that it takes in a target number and filters accordingly.   
-You may copy your code from `highScoringPlayers` to speed up the process.
+Before, your function looked for only players with 20 points per game. Now your function takes in a target number `targetNum` and filters accordingly.  
+######
+*You may copy your code from `highScoringPlayersA` to speed up the coding process*
 
 ```js
-console.log(highScoringPlayers(allStars, 23)); //=> 
+console.log(highScoringPlayersB(allStars, 23)); //=> 
 /*
   [
     "Dwyane Wade",
@@ -436,8 +437,10 @@ describe("highScoringPlayersB", function () {
 
 ### !question  
 
-Right now your function looks for only players with 20 points per game. Modify your function such that it takes in a target number and filters accordingly.   
-You may copy your code from `highScoringPlayersB` to speed up the process.
+Now, your function takes in a third argument that indicates which property you are interested in `category`, and returns a filtered array based on the property.
+
+######  
+*You may copy your code from `highScoringPlayersB` to speed up the process.*
 
 ```js
 console.log(highScoringPlayersC(allStars, 25, "pointsPerGame")); //=> 

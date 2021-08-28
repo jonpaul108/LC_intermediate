@@ -10,13 +10,13 @@ Bugs can come in a few forms:
   * Syntax errors
   * Run time errors
 
-Problems will mainly contain logic errors, thought you may encounter syntax and runtime errors as well. 
+Problems will mainly contain logic errors, though you may encounter syntax and runtime errors as well. 
 ######
 ### Learning Objectives  
 *It is your goal to solve the prompts based on the intention of the original coder, not to resolve these prompts from scratch*.  
 
 To help build adequate debugging skills, this section provides challenges for review or practice of the following concepts: 
-######
+
 * *Loop logic*
 * *Conditionals in iterations*
 * *Var placement and declarations*

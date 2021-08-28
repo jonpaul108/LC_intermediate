@@ -56,7 +56,7 @@ function oddOrEvenNums(nums) {
 
 //Given an array of objects that tell whether a person used all their vacation or not, return a new array with people's names surrounded by '*' if they have vacation remaining.
 
-function hasVacationRemaining(arr) {
+function vacationRemaining(arr) {
   return arr.map(el => {
     return el['vacationRemaining'] ? '*' + el.name + '*' : el.name;
   })

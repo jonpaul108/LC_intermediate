@@ -1,4 +1,4 @@
-# Various
+# Debugging
 
 ### !challenge
 
@@ -9,7 +9,7 @@
 
 ### !question  
 
-Given an array, find the first index where a 10 appears. If it doesn't appear, return -1;
+Given an array `arr`, find the first index where a 10 appears. If it doesn't appear, return -1;
 
 ```js
 var arr = [1, 6, 10, 3]
@@ -72,7 +72,7 @@ describe("findTen", function () {
 
 ### !question  
 
-Given an array of employee data, return all the names in an array of the people who took vacation this year 
+Given an array of employee data `arr`, return all the names in an array of the people who took vacation this year 
 ```js
 var vacation = [
     {
@@ -169,7 +169,7 @@ describe("tookVacation", function () {
 
 ### !question 
 
-Given a list of arrays of numbers, return the sum of the array with the greatest total. 
+Given a list of arrays of numbers `listOfNums`, return the sum of the array with the greatest total. 
 
 ```js
 var listOfNums = [
@@ -191,7 +191,6 @@ function greatestSum(arr) {
   var greatest = 0;
   var currSum = 0;
   for (var i = 0; i < arr.length; i++) {
-   // var currSum = 0;
     for (var j = 0; j < arr[i].length; j++) {
       currSum += arr[i][j];
     }
@@ -249,7 +248,7 @@ describe('greatestSum', function () {
 
 ### !question 
 
-Given a list of arrays of numbers, return the sum of the array with the greatest total. 
+Given an object `obj` and an array of all the keys in the object `arr`, return a string of every other property concatenated together 
 
 ```js
 var objOfStr = {
@@ -278,7 +277,7 @@ console.log('basic 8b: ', findValues(objOfStr, arrOfKeys2)); //==> 'You are a wo
 ```js
 function stringFromValues(obj, arr) {
   var str = '';
-  for (var i = 0; i < arr.length; i ++) {
+  for (var i = 0; i < arr.length; i++) {
     str + obj[arr[i]];
   }
   return str;
@@ -365,7 +364,7 @@ describe('stringFromValues', function () {
 
 ### !question 
 
-Given a list of arrays of numbers, return the sum of the array with the greatest total. 
+Given an array of words `arr` and a character `char`, return an array of the first index where the character can be found in each word. If the character cannot be found, add 'none' to the result array.  
 
 ```js
 var wordArr = ["aim", "tail", "series", "kitten", "fruit", "paper"];
@@ -438,10 +437,13 @@ describe('indexOrNone', function () {
 
 ### !question 
 
-   James and Todd live at a time when paper routes are common among kids. Jame's job is to deliver paper to each house with an odd number. Gather all the odd number houses from the given list and return a new list for Jame's to follow. 
+   James and Todd live at a time when paper routes are common among kids. Jame's job is to deliver paper to each house with an odd number.  
      
-  Hints:  
-  - Odd number houses always appear every other number. However, the starting number of the list could be even or odd.
+   Given an array of numbers `houseNums`, gather all the odd number houses from the given list and return a new list for Jame's to follow. 
+     
+  Notes:  
+  - Odd number houses always appear every other number.
+  - The starting number of the list could be even or odd.
   - Numbers will always be whole numbers. 
 
 ```js
@@ -502,7 +504,10 @@ describe('newspaperDelivery', function () {
 
 ### !question 
 
- Given two strings, return an array of all indexes of the second string that do not match the first string. 
+ Given two strings, a correctly spelled string `correct word` and an incorrectly spelled word `studentWord`, return an array of all indexes of the second string that do not match the first string. 
+
+ Note:
+ - Both words will have the same length;
 
 ```js
 console.log(spellChecker('transluscent', 'trensloscint')); // = [2, 6, 9];
@@ -546,10 +551,6 @@ describe("spellChecker", function () {
     expect(spellChecker("transluscent", "trensloscint")).to.eql([2, 6, 9]);
   })
 
-  it("should return the expected index numbers given different length words", function () {
-      expect(spellChecker("four", "for")).to.eql([2, 3]);
-      expect(spellChecker("whole", "hole")).to.eql([0,1,2,3,4]);
-  })
 
   it("should return an empty array if the words have the same spelling", function () {
       expect(spellChecker("four", "four")).to.eql([]);
@@ -576,7 +577,7 @@ describe("spellChecker", function () {
   
   You are testing out the book with a bunch of caterpillars. You have recorded their eating habits over six days. You are now ready to report your findings.  
     
-  Given an array of the days the caterpillars ate and the food they consumed, find out how many days a particular food was eaten.
+  Given an array containing the days the caterpillars ate and the food they consumed `arr`, and given a food `food`, find out how many days a particular food was eaten.
  
 
 
