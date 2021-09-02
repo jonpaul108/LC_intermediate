@@ -17,7 +17,8 @@
 ---
 # DefaultUnitVisibility: hidden
 Course:
-  - Section: [Intermediate Prompts]
+  - Section: Intermediate Prompts
     Repos:
       -  URL: https://github.com/jonpaul108/LC_intermediate.git
-         DefaultUpdates: [manual | auto]
+         DefaultUpdates: auto
+
