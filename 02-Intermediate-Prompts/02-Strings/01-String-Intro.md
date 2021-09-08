@@ -4,7 +4,7 @@
 
 This section focuses on string concepts.  
 ######
-Many students obtain significant knowledge and capability non-scalar data types (arrays / objects) , but struggle with scalar types (strings / numbers / booleans / etc). Strings tend to pose particular difficuly due to being iterable but not mutable.
+Many students obtain significant knowledge and capability on non-scalar data types (arrays / objects) , but struggle with scalar types (strings / numbers / booleans / etc). Strings tend to pose particular difficuly due to being iterable but not mutable.
 ######
 ### Learning Objectives  
 It is common in both toy problems and the real world to need to parse strings and deal deeply with all data types. 

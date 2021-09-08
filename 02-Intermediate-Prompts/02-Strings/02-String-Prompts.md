@@ -283,7 +283,7 @@ describe("everyOtherChar", function () {
 
 ### !question 
 
-Given a string `str`, return a new string by iterating from the end of the string by three to find the word mixed into the characters
+Given a string `str`, return a new string by iterating from the end of the string by three to find the word mixed into the characters.
 
 **Do not use String.split method.**
 
@@ -338,12 +338,12 @@ describe("everyThirdChar", function () {
 
 ### !question 
 
-Given an objects of objects `people` containing a information about peoples signed in status and a string `name`, return a message describing
+Given an object containing `people` objects with information about the person's signed in status and a string `name`, return a message describing
   * if the person is signed out or signed in and
   * when they last signed in.   
     
 The message should take the form:
-`[name] is currently signed [in/out]. They last signed in on [date].`
+`"[name] is currently signed [in/out]. They last signed in on [date]."`
 
 
 **Do not use String.split method.**
@@ -464,7 +464,7 @@ describe('signedIn', function () {
 
 ### !question 
 
-Given an array of objects `people` containing names and vacation remaining status, return an array of all the names. Mark the people who have vacation remaining by surrounding their names in asterisks ('*').
+Given an array of `people` objects containing names and vacation remaining status, return an array of all the names. Mark the people who have vacation remaining by surrounding their names in asterisks ('*').
 
 **Do not use String.split method.**
 
