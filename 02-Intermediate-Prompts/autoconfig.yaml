@@ -5,55 +5,69 @@
 # include a config.yaml in your repo following the same conventions as this auto-generated file.
 # A user-created config.yaml will have priority over the auto-generated one.
 
+---
 Standards:
-- Title: Intermediate Intro
-  UID: 72b4948fd89ad9d9e696aa6f8c7a99b1
-  Description: Intermediate Intro
-  SuccessCriteria:
-  - success criteria
-  ContentFiles:
-  - Type: Lesson
-    Path: /01-Intermediate-Intro/01-Intermediate-Intro.md
-    UID: f169e4b93dd8284dd8c05dd54398038f
-- Title: Strings
-  UID: 89be9433646f5939040a78971a5d103a
-  Description: Strings
-  SuccessCriteria:
-  - success criteria
-  ContentFiles:
-  - Type: Lesson
-    Path: /02-Strings/01-String-Intro.md
-    UID: cce443ad8b476c6b67dcab5e4c59de53
-  - Type: Lesson
-    Path: /02-Strings/02-String-Prompts.md
-    UID: fd2eec228254dc3d72ca50f78c118225
-- Title: Data Structures
-  UID: 49110ba9c7e157360ed1b72f643bc1a3
-  Description: Data Structures
-  SuccessCriteria:
-  - success criteria
-  ContentFiles:
-  - Type: Lesson
-    Path: /03-Data-Structures/01-Data-Structures-Intro.md
-    UID: c815681ae63da55ae07f88b847bf3c17
-  - Type: Lesson
-    Path: /03-Data-Structures/02-Data-Structures-1.md
-    UID: c8501e8ea468aa2fe3c317ffac62b0e6
-  - Type: Lesson
-    Path: /03-Data-Structures/03-Data-Structures-3.md
-    UID: 3bf7c540b25dbf69a10791e04d8b4079
-  - Type: Lesson
-    Path: /03-Data-Structures/04-Data-Structures-3.md
-    UID: b8b8c2b6f449e8f76b681d7c9f2e8f8e
-- Title: Debugging
-  UID: da7d763aac39b294c7453c77c10d8239
-  Description: Debugging
-  SuccessCriteria:
-  - success criteria
-  ContentFiles:
-  - Type: Lesson
-    Path: /04-Debugging/01-Debugging-Intro.md
-    UID: 2c67a2ffb84e3875097c090baba8f703
-  - Type: Lesson
-    Path: /04-Debugging/02-Debugging.md
-    UID: 29683faabb5f68c48b655f2e33bb19a0
+  -
+    Title: Intermediate Intro
+    Description: Intermediate Intro
+    UID: 72b4948fd89ad9d9e696aa6f8c7a99b1
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: 9cc7cfd6cad3b34a414fed947ff343e3
+        Path: /01-Intermediate-Intro/01-Intermediate-Intro.md
+  -
+    Title: Strings
+    Description: Strings
+    UID: 89be9433646f5939040a78971a5d103a
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: 34fa0dc28b8b601ca67cfcead5bf7e7f
+        Path: /02-Strings/01-String-Intro.md
+      -
+        Type: Lesson
+        UID: 66f1b46427c3024dcdec2047bfdac825
+        Path: /02-Strings/02-String-Prompts.md
+  -
+    Title: Data Structures
+    Description: Data Structures
+    UID: 49110ba9c7e157360ed1b72f643bc1a3
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: fdc4084d16e61f788698ad05d9e1857e
+        Path: /03-Data-Structures/01-Data-Structures-Intro.md
+      -
+        Type: Lesson
+        UID: e74dace374f71f016b1e217fa46fc433
+        Path: /03-Data-Structures/02-Data-Structures-1.md
+      -
+        Type: Lesson
+        UID: dc976c02d4f30f5c81061b923ce1fcea
+        Path: /03-Data-Structures/03-Data-Structures-3.md
+      -
+        Type: Lesson
+        UID: 7af20688c728a09130f05ca263cf15ab
+        Path: /03-Data-Structures/04-Data-Structures-3.md
+  -
+    Title: Debugging
+    Description: Debugging
+    UID: da7d763aac39b294c7453c77c10d8239
+    SuccessCriteria:
+      - success criteria
+    ContentFiles:
+      -
+        Type: Lesson
+        UID: d27c4b11bd096532745e04379ef69475
+        Path: /04-Debugging/01-Debugging-Intro.md
+      -
+        Type: Lesson
+        UID: 923a937001fd11af9c0e4adb81dc7a99
+        Path: /04-Debugging/02-Debugging.md

@@ -16,7 +16,7 @@ By practicing the problems in this section, you will gain or review the followin
 
 ## Scope of Sections
 
-Each section connects with the others. The titles are not comprehensive to the content contained within each problem set. For example, 'Data Structurs' will have problems that test and require understanding of strings, numbers, etc, not just objects and arrays. 
+Each section connects with the others. The titles are not comprehensive to the content contained within each problem set. For example, 'Data Structures' will have problems that test and require understanding of strings, numbers, etc, not just objects and arrays. 
 ######
 The difficulty generally grows each lesson as the student journeys deeper into the given prompts. By the end of the lessons, the student can expect to face harder questions challenging their problem solving skills.
 
@@ -28,11 +28,10 @@ To benefit most from these prompts, it is important to follow a practice pattern
 ######
 Here are some recommendations:
 ######
-* *Give yourself time pressure. Set a clock for 20 minutes.*
-* *Stop when you run out of time.*
-* *If you did not solve the problem in the time limit, try again from scratch 24-48 hours later.*
+* *Give yourself time pressure. Set a timer for 20 minutes. Stop when you run out of time.*
 * *Give yourself plenty of time to comprehend, understand, and plan for a prompt. 5 - 10 minutes is normal!*
 * *Practice the style of explaining you plan on using during the TAA while solving the prompts.*
+* *If you did not solve the problem in the time limit, try again from scratch 24-48 hours later.*
 * *Review what you did well.* 
 * *Reflect on where you might have wasted time.*
 * *Reflect on your performance and progress. Consider how to improve.*
