@@ -1095,7 +1095,7 @@ describe("killerRobots", function () {
 
 Sally lives in a very rainy area. She's trying to find the day most likely to be sunny. She looks at two sources of information to find a day likely to be sunny.
   
-Weather prediction takes in an object containing two sources of weather info `sources`. If both sources contain weather info predicting the same day to be 'sunny', return the day. If no days match, return 'replan'
+Weather prediction takes in an object containing two sources of weather info `sources`. If both sources contain weather info predicting the same day to be 'sunny', return the day. If no days match, return 'reschedule'.
 
 Notes:  
 - At most, one sunny day will match 
@@ -1107,9 +1107,9 @@ Notes:
 ```js
 const sources = {
     source1: [
-        {
-          day: "Monday",
-          weather: 'rainy'  
+      {
+        day: "Monday",
+        weather: 'rainy'  
       },
       {
         day: 'Tuesday',
@@ -1117,9 +1117,9 @@ const sources = {
       },
     ],
     source2: [
-        {
-          day: "Monday",
-          weather: 'sunny'  
+      {
+        day: "Monday",
+        weather: 'sunny'  
       },
       {
         day: 'Tuesday',
