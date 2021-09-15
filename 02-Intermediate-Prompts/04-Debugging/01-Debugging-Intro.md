@@ -19,7 +19,7 @@ To help build adequate debugging skills, this section provides challenges for re
 
 * *Loop logic*
 * *Conditionals in iterations*
-* *Var placement and declarations*
+* *Variable placement and declarations*
 * *Return statements*
 * *Code investigation*
 * *General debugging skills*

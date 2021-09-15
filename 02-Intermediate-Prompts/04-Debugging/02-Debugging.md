@@ -266,8 +266,8 @@ var arrOfKeys1 = ['key1', 'key2', 'key3', 'key4', 'key5', 'key6', 'key7', 'key8'
 
 var arrOfKeys2 = ['key2', 'key1', 'key4', 'key3', 'key6', 'key5', 'key8', 'key7'];
 
-console.log('basic 8a: ', findValues(objOfStr, arrOfKeys1)); //==> 'My dog loves bones.'
-console.log('basic 8b: ', findValues(objOfStr, arrOfKeys2)); //==> 'You are a wonderful person.'
+console.log('intermediate 4a: ', stringFromValues(objOfStr, arrOfKeys1)); //==> 'My dog loves bones.'
+console.log('intermediate 4b: ', stringFromValues(objOfStr, arrOfKeys2)); //==> 'You are a wonderful person.'
 ``` 
 
 ### !end-question
@@ -437,7 +437,7 @@ describe('indexOrNone', function () {
 
 ### !question 
 
-   James and Todd live at a time when paper routes are common among kids. Jame's job is to deliver paper to each house with an odd number.  
+   James and Todd live at a time when paper routes are common among kids. James's job is to deliver paper to each house with an odd number.  
      
    Given an array of numbers `houseNums`, gather all the odd number houses from the given list and return a new list for Jame's to follow. 
      
@@ -447,9 +447,13 @@ describe('indexOrNone', function () {
   - Numbers will always be whole numbers. 
 
 ```js
-var houseNums = [101, 100, 99, 98];
+var houseNums1 = [101, 100, 99, 98];
 
-console.log(newspaperDelivery(houseNums)); // => [101, 99]
+console.log(newspaperDelivery(houseNums1)); // => [101, 99]
+
+var houseNums2 = [50, 49, 48, 47];
+
+console.log(newspaperDelivery(houseNums2)); // => [49, 47]
 ``` 
 
 ### !end-question
@@ -573,7 +577,7 @@ describe("spellChecker", function () {
 
 ### !question 
 
- Do you know the story of the hungry caterpillar? It's a famous kid's story about a caterpillar that eats many foods over a week to grow and grow until it becomes a beautiful butterfly.  
+ Do you know the story of the hungry caterpillar? It's a famous children's story about a caterpillar that eats many foods over a week to grow and grow until it becomes a beautiful butterfly.  
   
   You are testing out the book with a bunch of caterpillars. You have recorded their eating habits over six days. You are now ready to report your findings.  
     
@@ -609,7 +613,7 @@ var eatingHabits = [
   }
 ]
 
-console.log(hungryCaterpillar(eatingHabits, 'apple'); // => 3
+console.log(hungryCaterpillars(eatingHabits, 'apple')); // => 3
 ``` 
 
 ### !end-question
